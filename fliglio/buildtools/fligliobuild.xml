@@ -1,0 +1,76 @@
+<project name="fligliopackagesbuilder" default="build">
+
+	<property name="buildtools.dir"                 value="${vendor.dir}/fliglio/buildtools" />
+	<property name="buildtools.bin.dir"             value="${buildtools.dir}/bin" />
+
+	<property name="check_syntax.php"               value="${buildtools.bin.dir}/check_syntax.php" />
+	<property name="check_deps.php"                 value="${buildtools.bin.dir}/check_deps.php" />
+	<property name="check_commands.php"             value="${buildtools.bin.dir}/check_commands.php" />
+	<property name="check_naming.php"               value="${buildtools.bin.dir}/check_naming.php" />
+	<property name="cache_routes.php"               value="${buildtools.bin.dir}/cache_routes.php" />
+	<property name="cache_package_index.php"        value="${buildtools.bin.dir}/cache_package_index.php" />
+	<property name="cache_configs.php"              value="${buildtools.bin.dir}/cache_configs.php" />
+	<property name="cache_permissions.php"          value="${buildtools.bin.dir}/cache_permissions.php" />
+	<property name="stdJUnitXml.php"                value="${buildtools.bin.dir}/stdJUnitXml.php" />
+	
+	<property name="buildtools.build.dir"           value="${build.dir}/fliglio" />
+	
+	
+	<!-- <import file="${bin.dir}/fliglio-packages/fligliotests.xml"/> -->
+	
+	<!-- Public Targets -->
+
+	<target name="fliglio-build" depends="fliglio-static-checks">
+
+		<mkdir dir="${buildtools.build.dir}" /> 
+
+		<exec executable="${cache_package_index.php}" failonerror="true" logError="true">
+			<arg line='-r "${basedir}"' />
+			<arg line='-p "${fl.dir}/packages"' />
+			<arg line='-p "${fl.dir}/modules"' />
+			<arg line='-o "${buildtools.build.dir}/package-index.php"' />
+		</exec>
+
+		<exec executable="${cache_routes.php}" failonerror="true" logError="true">
+			<arg line='-i "${fl.dir}/routes.json"' /> 
+			<arg line='-o "${buildtools.build.dir}/routes.php"' />
+		</exec>
+
+	</target>
+	
+	<target name="fliglio-install">
+		<!-- <copy todir="${deploy.dir}/app/cache">
+			<fileset dir="${buildtools.build.cache.dir}" />
+		</copy> -->
+	</target>
+	
+	<!-- Private Targets -->
+	
+	<target name="fliglio-static-checks">
+
+		<!-- <echo message="Checking syntax..."/>
+		<exec executable="${check_syntax.php}" failonerror="true" logError="true">
+			<arg line='-f "${fl.dir}/index.php"' /> 
+			<arg line='-p "${fl.dir}/packages"' />
+			<arg line='-p "${fl.dir}/modules"' />
+		</exec> -->
+
+		<echo message="Checking folder structure and naming..."/>
+		<exec executable="${check_naming.php}" failonerror="true" logError="true">
+			<arg line='-f "${fl.dir}/bootstrap.php"' /> 
+			<arg line='-p "${fl.dir}/packages"' />
+			<arg line='-p "${fl.dir}/modules"' />
+		</exec>
+
+		<echo message="Checking dependencies..."/>
+		<exec executable="${check_deps.php}" failonerror="true" logError="true">
+			<arg line='-f "${fl.dir}/bootstrap.php"' /> 
+			<arg line='-p "${fl.dir}/packages"' />
+			<arg line='-p "${fl.dir}/modules"' />
+		</exec>
+
+	</target>
+
+
+
+</project> 

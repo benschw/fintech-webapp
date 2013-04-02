@@ -1,0 +1,22 @@
+<project name="corebuilder" default="build">
+
+	<!-- Build Utilities -->
+	<property name="buildtools.dir"               value="${fl.dir}/buildtools" />
+	<property name="buildtools.bin.dir"           value="${buildtools.dir}/bin" />
+
+
+
+	<!-- Public Targets -->
+
+	<target name="core-clean">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="core-build">
+		<mkdir dir="${build.dir}" /> 
+	</target>
+	
+	<target name="core-install">
+	</target>
+
+</project>

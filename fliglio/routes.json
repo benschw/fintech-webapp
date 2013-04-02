@@ -1,0 +1,22 @@
+[{
+	"name"         : "auth",
+	"route"        : "/api/auth/:command",
+	"module"       : "FinTech",
+	"commandGroup" : "Auth"
+
+
+},{
+	"name"         : "api",
+	"route"        : "/api/:command",
+	"module"       : "FinTech",
+	"commandGroup" : "Services"
+
+
+},{
+	"name" : "error",
+	"cmd"  : "FinTech.Ui.handleError"
+},{
+	"name"    : "404",
+	"route"   : "*",
+	"cmd"     : "FinTech.Ui.pageNotFound"
+}]

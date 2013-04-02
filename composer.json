@@ -1,0 +1,8 @@
+{
+	"name" : "bv/fintech",
+	
+	"require": {
+		"nikic/PHP-Parser": "dev-master",
+		"facebook/php-sdk": "dev-master"
+	}
+}

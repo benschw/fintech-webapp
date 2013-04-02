@@ -1,0 +1,5 @@
+<?php
+
+/**
+ * @requires Web
+ */

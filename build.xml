@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<project name="FinTech" default="build">
+	
+	<property file="build.properties" /> 
+
+	<!-- Compile / Build Utilities -->
+
+	<import file="${fl.dir}/buildtools/corebuild.xml"/>
+	<import file="${fl.dir}/buildtools/fligliobuild.xml"/>
+
+	<!-- Public Build Methods -->
+
+	<target name="build" depends="core-build, fliglio-build" />
+	<target name="clean" depends="core-clean" />
+	<target name="install" depends="core-install, fliglio-install" />
+
+
+</project>
