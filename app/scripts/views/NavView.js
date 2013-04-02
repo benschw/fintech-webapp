@@ -8,7 +8,6 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 
 		    this.model.on("change", this.render);
 		    
-			$('.dropdown-toggle').dropdown()
 			
 		},
 		render: function () {
@@ -16,6 +15,8 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			
 			this.$el.empty();
 			this.$el.append(compiledTemplate).show();
+
+			$('.dropdown-toggle').dropdown();
 
 			return this;
 		}

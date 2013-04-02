@@ -17,7 +17,7 @@ define(['jquery', 'underscore', 'backbone',
 				'model': navm
 			});
 
-			var model = new HomeModel({'title': 'Settings for '+this.userName});
+			var model = new HomeModel({'title': 'Settings for '+this.options.userName});
 			var view  = new HomeView({
 				'el': $('#content'),
 				'model': model

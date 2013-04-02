@@ -13,23 +13,26 @@
 					<li <%= aboutActive ? 'class="active"' : '' %>><a href="/about">About</a></li>
 					<li <%= contactActive ? 'class="active"' : '' %>><a href="/contact">Contact</a></li>
 				</ul>
-				<div class="navbar-text pull-right">
-					<% if (loggedIn) { %>
-						<div class="dropdown">
-							Logged in as <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= email %></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="/<%= userName %>">Dashboard</a></li>
-								<li><a href="/<%= userName %>/settings">My Account</a></li>
-								<li class="divider"></li>
-								<!-- <li class="nav-header">Nav header</li> -->
-								<li><a href="/api/auth/logout">Logout</a></li>
-								<li><a href="#">Help</a></li>
+
+				<% if (loggedIn) { %>
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= email %> <b class="caret"></b></a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>">Dashboard</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>/settings">My Account</a></li>
+								<li role="presentation" class="divider"></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="/api/auth/logout">Logout</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Help</a></li>
 							</ul>
-						</div>
-					<% } else { %>
+						</li>
+					</ul>
+
+				<% } else { %>
+					<div class="navbar-text pull-right">
 						<a href="/api/auth/login"><img src="/images/fb-login.png" /></a>
-					<% }  %>
-				</div>
+					</div>
+				<% }  %>
 			</div>
 		</div>
 	</div>

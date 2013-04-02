@@ -16,7 +16,7 @@ define(['jquery', 'underscore', 'backbone',
 
 		var view = new TplView({
 			'el': $('#content'),
-			'tplPath': 'app/scripts/tpl/contact.html'
+			'tplPath': 'app/scripts/tpl/about.html'
 		});
 		view.render();
 		
