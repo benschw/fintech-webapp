@@ -8,8 +8,10 @@ define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 			'' : 'home',
 			'about': 'about',
 			'contact': 'contact',
-			':userName/settings': 'userSettings',
 			':userName': 'dashboard',
+			':userName/settings': 'userSettings',
+			':userName/markets': 'userMarketsIn',
+			':userName/my-markets': 'userMarketsRun',
 			'*actions': 'defaultAction'
 		}
 	});
@@ -35,6 +37,14 @@ define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 		router.on('route:userSettings', function (un) {
 			viewMgr.userSettings(un);
 		});
+		router.on('route:userMarketsIn', function (un) {
+			viewMgr.userMarketsIn(un);
+		});
+		router.on('route:userMarketsRun', function (un) {
+			viewMgr.userMarketsRun(un);
+		});
+
+
 
 
 		router.on('route:defaultAction', function (actions) {

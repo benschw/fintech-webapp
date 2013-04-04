@@ -9,12 +9,13 @@
 			<a class="brand" href="#">Scalpable</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
+					<% if (loggedIn) { %>
+						<li <%= activePage == 'dashboard_page' ? 'class="active"' : '' %>><a href="/<%= userName %>">Home</a></li>
+					<% } else { %>
 					<li <%= activePage == 'home_page' ? 'class="active"' : '' %>><a href="/">Home</a></li>
+					<% } %>
 					<li <%= activePage == 'about_page' ? 'class="active"' : '' %>><a href="/about">About</a></li>
 					<li <%= activePage == 'contact_page' ? 'class="active"' : '' %>><a href="/contact">Contact</a></li>
-					<% if (loggedIn) { %>
-						<li <%= activePage == 'dashboard_page' ? 'class="active"' : '' %>><a href="/<%= userName %>">Dashboard</a></li>
-					<% }  %>
 				</ul>
 
 				<% if (loggedIn) { %>

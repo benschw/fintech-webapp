@@ -4,8 +4,10 @@ define(['jquery', 'underscore', 'backbone',
 		'views/NavView',
 		'models/HomeModel',
 		'views/HomeView',
-		'views/TplView'
-	], function ($, _, Backbone, NavModel, NavView, HomeModel, HomeView, TplView) {
+		'views/TplView',
+		'models/UserNavModel',
+		'views/UserNavView'
+	], function ($, _, Backbone, NavModel, NavView, HomeModel, HomeView, TplView, UserNavModel, UserNavView) {
 	'use strict';
 
 	/**
@@ -86,14 +88,68 @@ define(['jquery', 'underscore', 'backbone',
 		view.render();
 		return this;
 	};
+
+	/* Settings Section */
+
 	ViewMgr.prototype.userSettings = function (userName) {
 		this.navModel.setActivePage(null);
 
+		var nav = new UserNavModel({
+			'userName': userName,
+			activePage: UserNavModel.pages.SETTINGS
+		});
 
-		var model = new HomeModel({'title': 'Settings for ' + userName});
-		var view  = new HomeView({
+		var navView = new UserNavView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': model
+			model: nav
+		});
+		navView.render();
+
+		var view = new TplView({
+			'el': $('#userContent'),
+			'tplPath': 'app/scripts/tpl/settings.html'
+		});
+		view.render();
+		return this;
+	};
+	ViewMgr.prototype.userMarketsIn = function (userName) {
+		this.navModel.setActivePage(null);
+
+		var nav = new UserNavModel({
+			'userName': userName,
+			activePage: UserNavModel.pages.SETTINGS
+		});
+
+		var navView = new UserNavView({
+			'el': $(ViewMgr.regions.CONTENT),
+			model: nav
+		});
+		navView.render();
+
+		var view = new TplView({
+			'el': $('#userContent'),
+			'tplPath': 'app/scripts/tpl/settings.html'
+		});
+		view.render();
+		return this;
+	};
+	ViewMgr.prototype.userMarketsRun = function (userName) {
+		this.navModel.setActivePage(null);
+
+		var nav = new UserNavModel({
+			'userName': userName,
+			activePage: UserNavModel.pages.SETTINGS
+		});
+
+		var navView = new UserNavView({
+			'el': $(ViewMgr.regions.CONTENT),
+			model: nav
+		});
+		navView.render();
+
+		var view = new TplView({
+			'el': $('#userContent'),
+			'tplPath': 'app/scripts/tpl/settings.html'
 		});
 		view.render();
 		return this;

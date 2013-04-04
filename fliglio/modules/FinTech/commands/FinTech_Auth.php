@@ -65,7 +65,7 @@ class FinTech_Auth implements Flfc_Routable {
 				$sess->email     = $user_profile['email'];
 				$sess->userName  = strtolower($sess->firstName . $sess->lastName); // DO THIS REAL?
 
-				throw new Flfc_RedirectException("Logged in, redirecting", 302, "/#/");
+				throw new Flfc_RedirectException("Logged in, redirecting", 302, "/#/".$sess->userName);
 
 			} catch (FacebookApiException $e) {
 			
