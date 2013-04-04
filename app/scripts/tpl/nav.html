@@ -12,6 +12,9 @@
 					<li <%= homeActive ? 'class="active"' : '' %>><a href="/">Home</a></li>
 					<li <%= aboutActive ? 'class="active"' : '' %>><a href="/about">About</a></li>
 					<li <%= contactActive ? 'class="active"' : '' %>><a href="/contact">Contact</a></li>
+					<% if (loggedIn) { %>
+						<li <%= dashboardActive ? 'class="active"' : '' %>><a href="/<%= userName %>"></a></li>
+					<% }  %>
 				</ul>
 
 				<% if (loggedIn) { %>
@@ -20,10 +23,10 @@
 							<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= email %> <b class="caret"></b></a>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
 								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>">Dashboard</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>/settings">My Account</a></li>
-								<li role="presentation" class="divider"></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="/api/auth/logout">Logout</a></li>
 								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Help</a></li>
+								<li role="presentation" class="divider"></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>/settings">Settings</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="/api/auth/logout">Logout</a></li>
 							</ul>
 						</li>
 					</ul>

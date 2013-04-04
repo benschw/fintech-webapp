@@ -1,11 +1,6 @@
 /*global define */
-define(['jquery', 'underscore', 'backbone', 
-		'commands/Home',
-		'commands/About',
-		'commands/Contact',
-		'commands/UserDashboard',
-		'commands/UserSettings'
-	], function ($, _, Backbone, Home, About, Contact, UserDashboard, UserSettings) {
+define(['jquery', 'underscore', 'backbone', 'ViewManager'], 
+		function ($, _, Backbone, ViewManager) {
 	'use strict';
 
 	var AppRouter = Backbone.Router.extend({
@@ -20,26 +15,25 @@ define(['jquery', 'underscore', 'backbone',
 	});
 	
 	var initialize = function () {
+		var viewMgr = new ViewManager();
 
 		var router = new AppRouter();
 		
 		router.on('route:home', function () {
-			Home.initialize();
+			viewMgr.home();
 		});
 		router.on('route:about', function () {
-			About.initialize();
+			viewMgr.about();
 		});
 		router.on('route:contact', function () {
-			Contact.initialize();
+			viewMgr.contact();
 		});
 
 		router.on('route:dashboard', function (un) {
-			var v = new UserDashboard({userName: un});
-			v.render();
+			viewMgr.dashboard(un);
 		});
 		router.on('route:userSettings', function (un) {
-			var v = new UserSettings({userName: un});
-			v.render();
+			viewMgr.userSettings(un);
 		});
 
 
@@ -51,10 +45,10 @@ define(['jquery', 'underscore', 'backbone',
 		
 		
 		
-		$(document).delegate("a", "click", function(evt) {
+		$(document).delegate('a', 'click', function (evt) {
 			// Get the anchor href and protcol
-			var href = $(this).attr("href");
-			var protocol = this.protocol + "//";
+			var href = $(this).attr('href');
+			var protocol = this.protocol + '//';
 
 			// Ensure the protocol is not part of URL, meaning its relative.
 			// Stop the event bubbling to ensure the link will not cause a page refresh.

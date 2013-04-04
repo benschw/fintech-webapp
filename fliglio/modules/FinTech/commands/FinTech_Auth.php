@@ -73,7 +73,10 @@ class FinTech_Auth implements Flfc_Routable {
 			}
 		} else {
 			# There's no active session, let's generate one
-			$loginUrl = $facebook->getLoginUrl(array('scope' => 'email', 'redirect_uri' => Web_HttpAttributes::getProtocol().'://'.Web_HttpAttributes::getHttpHost().'/api/auth/login'));
+			$loginUrl = $facebook->getLoginUrl(array(
+				'scope'        => 'email', 
+				'redirect_uri' => Web_HttpAttributes::getProtocol().'://'.Web_HttpAttributes::getHttpHost().'/api/auth/login'
+			));
 			throw new Flfc_RedirectException("redirecting for login", 302, $loginUrl);
 		}
 	}

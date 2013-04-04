@@ -45,15 +45,23 @@ __p += '<div class="navbar navbar-inverse navbar-fixed-top">\n<div class="navbar
 ((__t = ( aboutActive ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/about">About</a></li>\n<li ' +
 ((__t = ( contactActive ? 'class="active"' : '' )) == null ? '' : __t) +
-'><a href="/contact">Contact</a></li>\n</ul>';
+'><a href="/contact">Contact</a></li>\n';
+ if (loggedIn) { ;
+__p += '\n<li ' +
+((__t = ( dashboardActive ? 'class="active"' : '' )) == null ? '' : __t) +
+'><a href="/' +
+((__t = ( userName )) == null ? '' : __t) +
+'"></a></li>\n';
+ }  ;
+__p += '\n</ul>';
  if (loggedIn) { ;
 __p += '\n<ul class="nav pull-right">\n<li class="dropdown">\n<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">' +
 ((__t = ( email )) == null ? '' : __t) +
 ' <b class="caret"></b></a>\n<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/' +
 ((__t = ( userName )) == null ? '' : __t) +
-'">Dashboard</a></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/' +
+'">Dashboard</a></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Help</a></li>\n<li role="presentation" class="divider"></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/' +
 ((__t = ( userName )) == null ? '' : __t) +
-'/settings">My Account</a></li>\n<li role="presentation" class="divider"></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/api/auth/logout">Logout</a></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Help</a></li>\n</ul>\n</li>\n</ul>';
+'/settings">Settings</a></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/api/auth/logout">Logout</a></li>\n</ul>\n</li>\n</ul>';
  } else { ;
 __p += '\n<div class="navbar-text pull-right">\n<a href="/api/auth/login"><img src="/images/fb-login.png" /></a>\n</div>\n';
  }  ;

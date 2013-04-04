@@ -13,7 +13,6 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 		
 		testFcn: function (e) {
 			e.preventDefault();
-			console.log("tested!");
 		},
 		
 		render: function () {

@@ -25,7 +25,7 @@ require.config({
 	}
 });
 
-require(['app', 'bootstrap'], function (app, bootstrap) {
+require(['app'], function (app) {
     'use strict';
     // use app here
 

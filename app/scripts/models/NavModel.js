@@ -7,11 +7,12 @@ define(['underscore', 'backbone'], function (_, Backbone) {
 			homeActive: false,
 			aboutActive: false,
 			contactActive: false,
+			dashboardActive: false,
 			loggedIn: false,
-			firstName: "",
-			lastName: "",
-			email: "",
-			userName: ""
+			firstName: '',
+			lastName: '',
+			email: '',
+			userName: ''
 		},
 		url: '/api/auth/status'
 	});

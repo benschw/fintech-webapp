@@ -100,6 +100,7 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
+                '!<%= yeoman.app %>/scripts/tpl.js',
                 'test/spec/{,*/}*.js'
             ]
         },
@@ -255,7 +256,7 @@ module.exports = function (grunt) {
 					templateSettings: {
 						// interpolate : /\{\{(.+?)\}\}/g
 					},
-					processContent: function(src) {
+					processContent: function (src) {
 						src = src.replace(/(^\s+|\s+$)/gm, '');
 						src = src.replace(/^app\/scripts\//, '');
 						src = src.replace(/\.html$/, '');
