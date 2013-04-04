@@ -1,5 +1,5 @@
 /*global define */
-define(['jquery', 'underscore', 'backbone', 'ViewManager'], 
+define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 		function ($, _, Backbone, ViewManager) {
 	'use strict';
 

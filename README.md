@@ -35,3 +35,22 @@
 	        Allow from all
 	    </Directory>
 	</VirtualHost>
+
+
+## notes
+- loginsplash/home
+- new
+- top
+
+dashboard
+	settings
+		link dwolla
+	my markets
+	my purchases
+
+market details
+	(w/ buy, and u own etc)
+
+	(FB chat/ activity stream)
+
+
