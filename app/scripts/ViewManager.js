@@ -121,7 +121,7 @@ define(['jquery', 'underscore', 'backbone',
 		});
 
 		var navView = new UserNavView({
-			'el': $(ViewMgr.regions.CONTENT),
+			'el': $(ViewMgr.regions.MARKETS_IN),
 			model: nav
 		});
 		navView.render();
@@ -138,7 +138,7 @@ define(['jquery', 'underscore', 'backbone',
 
 		var nav = new UserNavModel({
 			'userName': userName,
-			activePage: UserNavModel.pages.SETTINGS
+			activePage: UserNavModel.pages.MARKETS_RUN
 		});
 
 		var navView = new UserNavView({
