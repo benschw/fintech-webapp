@@ -11,6 +11,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl', 'bootstrap'], function ($, _,
 			
 		},
 		render: function () {
+			console.log('rendering nav');
 			var compiledTemplate = tpl['app/scripts/tpl/nav.html'](this.model.toJSON());
 			
 			this.$el.empty();

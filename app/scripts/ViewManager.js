@@ -12,86 +12,87 @@ define(['jquery', 'underscore', 'backbone',
 	 * @constructor
 	 */
 	var ViewMgr = function () {
+		this.navModel = new NavModel();
+		this.navModel.fetch();
+
+		this.navView = new NavView({
+			'el': $(ViewMgr.regions.NAV),
+			'model': this.navModel
+		});
+		this.navView.render();
+
+	};
+	
+	ViewMgr.regions = {
+		NAV: '#nav',
+		CONTENT: '#content'
 	};
 
 	ViewMgr.prototype.home = function () {
-		var navm = new NavModel({homeActive: true});
-		navm.fetch();
-		var navv = new NavView({
-			'el': $('#nav'),
-			'model': navm
-		});
-		navv.render();
+		this.navModel.setActivePage(NavModel.pages.HOME);
 
-		var model = new HomeModel({'title': 'galaxy'});
-		var view  = new HomeView({
-			'el': $('#content'),
-			'model': model
-		});
-		view.render();
+		if (this.navModel.get('loggedIn')) {
+
+			this.homeModelAuth = this.homeModelAuth ? this.homeModelAuth : new HomeModel({'title': 'auth'});
+			this.homeViewAuth = this.homeViewAuth ? this.homeViewAuth : new HomeView({
+				'el': $(ViewMgr.regions.CONTENT),
+				'model': this.homeModelAuth
+			});
+			this.homeViewAuth.render();
+
+		} else {
+			
+			this.homeModelNoAuth = this.homeModelNoAuth ? this.homeModelNoAuth : new HomeModel({'title': 'no auth'});
+			this.homeViewNoAuth = this.homeViewNoAuth ? this.homeViewNoAuth : new HomeView({
+				'el': $(ViewMgr.regions.CONTENT),
+				'model': this.homeModelNoAuth
+			});
+			this.homeViewNoAuth.render();
+		}
 
 	};
 	ViewMgr.prototype.about = function () {
-		var navm = new NavModel({aboutActive: true});
-		navm.fetch();
-		var navv = new NavView({
-			'el': $('#nav'),
-			'model': navm
-		});
-		navv.render();
+		this.navModel.setActivePage(NavModel.pages.ABOUT);
+
+		console.log(this.navModel.toJSON());
 		
 		var view = new TplView({
-			'el': $('#content'),
+			'el': $(ViewMgr.regions.CONTENT),
 			'tplPath': 'app/scripts/tpl/about.html'
 		});
 		view.render();
 
 	};
 	ViewMgr.prototype.contact = function () {
-		var navm = new NavModel({contactActive: true});
-		navm.fetch();
-		var navv = new NavView({
-			'el': $('#nav'),
-			'model': navm
-		});
-		navv.render();
+		this.navModel.setActivePage(NavModel.pages.CONTACT);
+
 		
 		var view = new TplView({
-			'el': $('#content'),
+			'el': $(ViewMgr.regions.CONTENT),
 			'tplPath': 'app/scripts/tpl/contact.html'
 		});
 		view.render();
 
 	};
 	ViewMgr.prototype.dashboard = function (userName) {
-		var navm = new NavModel({dashboardActive: true});
-		navm.fetch();
-		var navv = new NavView({
-			'el': $('#nav'),
-			'model': navm
-		});
-		navv.render();
+		this.navModel.setActivePage(NavModel.pages.DASHBOARD);
+
 
 		var model = new HomeModel({'title': 'Dashboard for ' + userName});
 		var view  = new HomeView({
-			'el': $('#content'),
+			'el': $(ViewMgr.regions.CONTENT),
 			'model': model
 		});
 		view.render();
 		return this;
 	};
 	ViewMgr.prototype.userSettings = function (userName) {
-		var navm = new NavModel({});
-		navm.fetch();
-		var navv = new NavView({
-			'el': $('#nav'),
-			'model': navm
-		});
-		navv.render();
+		this.navModel.setActivePage(null);
+
 
 		var model = new HomeModel({'title': 'Settings for ' + userName});
 		var view  = new HomeView({
-			'el': $('#content'),
+			'el': $(ViewMgr.regions.CONTENT),
 			'model': model
 		});
 		view.render();

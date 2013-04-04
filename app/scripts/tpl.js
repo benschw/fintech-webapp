@@ -40,18 +40,18 @@ var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="navbar navbar-inverse navbar-fixed-top">\n<div class="navbar-inner">\n<div class="container">\n<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<a class="brand" href="#">Scalpable</a>\n<div class="nav-collapse collapse">\n<ul class="nav">\n<li ' +
-((__t = ( homeActive ? 'class="active"' : '' )) == null ? '' : __t) +
+((__t = ( activePage == 'home_page' ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/">Home</a></li>\n<li ' +
-((__t = ( aboutActive ? 'class="active"' : '' )) == null ? '' : __t) +
+((__t = ( activePage == 'about_page' ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/about">About</a></li>\n<li ' +
-((__t = ( contactActive ? 'class="active"' : '' )) == null ? '' : __t) +
+((__t = ( activePage == 'contact_page' ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/contact">Contact</a></li>\n';
  if (loggedIn) { ;
 __p += '\n<li ' +
-((__t = ( dashboardActive ? 'class="active"' : '' )) == null ? '' : __t) +
+((__t = ( activePage == 'dashboard_page' ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/' +
 ((__t = ( userName )) == null ? '' : __t) +
-'"></a></li>\n';
+'">Dashboard</a></li>\n';
  }  ;
 __p += '\n</ul>';
  if (loggedIn) { ;
