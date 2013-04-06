@@ -5,13 +5,15 @@
 	<ul class="fndr-list">
 		<% for (var i=0, l=items.length; i<l; i++) { %>
 			<li class="fndr-item <%= i%2? 'even' : 'odd' %>">
-				<img src="<%= items[i].profileImagePath %>" />
+				<div class="img-container">
+					<img src="<%= items[i].orgImage %>" />
+				</div>
 				<div class="meta">
-					<h3><%= items[i].title %></h3>
-					<p><%= items[i].description %></p>
+					<h3><%= items[i].orgName %></h3>
+					<p><%= items[i].marketName %></p>
 				</div>
 				<div class="btn-wrapper">
-					<a href="/markets/<%= items[i].id %>/<%= items[i].seoName %>" class="btn btn-primary">more</a>
+					<a href="/markets/<%= items[i].id %>/<%= items[i].seoName %>" class="btn btn-primary">More</a>
 				</div>
 			</li>
 		<% } %>

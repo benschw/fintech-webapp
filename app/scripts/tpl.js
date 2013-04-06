@@ -67,17 +67,17 @@ __p += '<div class="container">\n<div class="page-header">\n<h1>' +
  for (var i=0, l=items.length; i<l; i++) { ;
 __p += '\n<li class="fndr-item ' +
 ((__t = ( i%2? 'even' : 'odd' )) == null ? '' : __t) +
-'">\n<img src="' +
-((__t = ( items[i].profileImagePath )) == null ? '' : __t) +
-'" />\n<div class="meta">\n<h3>' +
-((__t = ( items[i].title )) == null ? '' : __t) +
+'">\n<div class="img-container">\n<img src="' +
+((__t = ( items[i].orgImage )) == null ? '' : __t) +
+'" />\n</div>\n<div class="meta">\n<h3>' +
+((__t = ( items[i].orgName )) == null ? '' : __t) +
 '</h3>\n<p>' +
-((__t = ( items[i].description )) == null ? '' : __t) +
+((__t = ( items[i].marketName )) == null ? '' : __t) +
 '</p>\n</div>\n<div class="btn-wrapper">\n<a href="/markets/' +
 ((__t = ( items[i].id )) == null ? '' : __t) +
 '/' +
 ((__t = ( items[i].seoName )) == null ? '' : __t) +
-'" class="btn btn-primary">more</a>\n</div>\n</li>\n';
+'" class="btn btn-primary">More</a>\n</div>\n</li>\n';
  } ;
 __p += '\n</ul>\n</div>';
 
