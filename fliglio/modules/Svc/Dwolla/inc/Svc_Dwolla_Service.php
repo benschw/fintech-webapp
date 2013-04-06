@@ -34,6 +34,15 @@ class Svc_Dwolla_Service {
 		return $url;
 	}
 
+	public function sendMoney($pin, $destination, $amount, $notes)
+	{
+		$this->dwolla->setToken("M53T4Evtxm5nBbDEF9+TjsiDhQf19KuZNuPm0lx11SHtEsuN8Q");
+
+		$tid = $this->dwolla->send($pin, $destination, $amount, $notes);
+		if(!$tid) { echo "Error: {$this->dwolla->getError()} \n"; }
+		echo "Send transaction ID: {$tid} \n";
+	}
+
 	protected function makeRequest($url, $body = null, $headers = array()) {
 		$headers[] = "Accept: application/json; charset=utf-8";
 		$headers[] = "Content-Type: application/json; charset=utf-8";
