@@ -16,13 +16,11 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "ext-curl": "*",
                 "ext-json": "*",
-                "ext-curl": "*"
+                "php": ">=5.3.0"
             },
-            "time": "2013-02-06 16:27:40",
             "type": "library",
-            "installation-source": "dist",
             "autoload": {
                 "files": [
                     "lib/dwolla.php"
@@ -43,9 +41,10 @@
             "homepage": "http://developers.dwolla.com/dev",
             "keywords": [
                 "api",
-                "payment",
-                "dwolla"
-            ]
+                "dwolla",
+                "payment"
+            ],
+            "time": "2013-02-06 16:27:40"
         },
         {
             "name": "facebook/php-sdk",
@@ -62,13 +61,11 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.0",
                 "ext-curl": "*",
-                "ext-json": "*"
+                "ext-json": "*",
+                "php": ">=5.2.0"
             },
-            "time": "2013-01-15 21:37:15",
             "type": "library",
-            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "src"
@@ -89,7 +86,8 @@
             "keywords": [
                 "facebook",
                 "sdk"
-            ]
+            ],
+            "time": "2013-01-15 21:37:15"
         },
         {
             "name": "nikic/php-parser",
@@ -108,14 +106,12 @@
             "require": {
                 "php": ">=5.2"
             },
-            "time": "2013-03-05 14:42:24",
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "0.9-dev"
                 }
             },
-            "installation-source": "source",
             "autoload": {
                 "psr-0": {
                     "PHPParser": "lib/"
@@ -134,10 +130,13 @@
             "keywords": [
                 "parser",
                 "php"
-            ]
+            ],
+            "time": "2013-03-05 14:42:24"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
@@ -145,5 +144,11 @@
     "stability-flags": {
         "nikic/php-parser": 20,
         "facebook/php-sdk": 20
-    }
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
 }
