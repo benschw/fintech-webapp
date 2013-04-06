@@ -61,7 +61,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="container">\n<div class="page-header">\n<h1>' +
+__p += '<div class="container">\n<div class="fndr-list-title">\n<h1>' +
 ((__t = ( title )) == null ? '' : __t) +
 '</h1>\n</div>\n<ul class="fndr-list">\n';
  for (var i=0, l=items.length; i<l; i++) { ;
