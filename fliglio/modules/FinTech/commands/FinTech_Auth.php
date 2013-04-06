@@ -37,6 +37,7 @@ class FinTech_Auth implements Flfc_Routable {
 			"lastName"  => isset($sess->lastName) ? $sess->lastName : null,
 			"email"     => isset($sess->email) ? $sess->email : null,
 			"userName"  => isset($sess->userName) ? $sess->userName : null,
+			"fbId"      => isset($sess->oauth_id) ? $sess->oauth_id : null,
 		));
 	}
 	

@@ -5,7 +5,7 @@
  */
 class Svc_Dwolla_Service {
 
-	const BASE_URL = 'dwolla.com';
+	const BASE_URL = 'www.dwolla.com';
 
 	private static $instance;
 	private $dwolla;

@@ -1,13 +1,29 @@
 /*global define */
 define(['jquery', 'underscore', 'backbone',
 		'models/NavModel',
-		'views/NavView',
 		'models/HomeModel',
+		'models/UserNavModel',
+		'models/MarketItemModel',
+		'models/MarketItemsModel',
+		'views/NavView',
 		'views/HomeView',
 		'views/TplView',
-		'models/UserNavModel',
-		'views/UserNavView'
-	], function ($, _, Backbone, NavModel, NavView, HomeModel, HomeView, TplView, UserNavModel, UserNavView) {
+		'views/UserNavView',
+		'views/MarketItemView',
+		'views/MarketItemsView'
+	], function ($, _, Backbone,
+		NavModel,
+		HomeModel,
+		UserNavModel,
+		MarketItemModel,
+		MarketItemsModel,
+		NavView,
+		HomeView,
+		TplView,
+		UserNavView,
+		MarketItemView,
+		MarketItemsView
+	) {
 	'use strict';
 
 	/**
@@ -30,17 +46,17 @@ define(['jquery', 'underscore', 'backbone',
 		CONTENT: '#content'
 	};
 
-	ViewMgr.prototype.home = null;
-	ViewMgr.prototype.homeView = null;
-	ViewMgr.prototype.aboutView = null;
-	ViewMgr.prototype.contactView = null;
-	ViewMgr.prototype.helpView = null;
+	ViewMgr.prototype.homeModel      = null;
+	ViewMgr.prototype.homeView       = null;
+	ViewMgr.prototype.aboutView      = null;
+	ViewMgr.prototype.contactView    = null;
+	ViewMgr.prototype.helpView       = null;
 
 	ViewMgr.prototype.home = function () {
-		this.home = this.home ? this.home : new HomeModel({'title': 'no auth'});
+		this.homeModel = this.homeModel ? this.homeModel : new HomeModel({'title': 'no auth'});
 		this.homeView = this.homeView ? this.homeView : new HomeView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': this.home
+			'model': this.homeModel
 		});
 		this.homeView.render();
 
@@ -75,7 +91,6 @@ define(['jquery', 'underscore', 'backbone',
 	ViewMgr.prototype.dashboard = function (userName) {
 		this.navModel.setActivePage(NavModel.pages.DASHBOARD);
 
-
 		var model = new HomeModel({'title': userName + '\'s Dashboard'});
 		var view  = new HomeView({
 			'el': $(ViewMgr.regions.CONTENT),
@@ -84,28 +99,55 @@ define(['jquery', 'underscore', 'backbone',
 		view.render();
 		return this;
 	};
+	ViewMgr.prototype.random = function () {
+		this.navModel.setActivePage(NavModel.pages.RANDOM);
+
+		var view  = new MarketItemsView({
+			'el': $(ViewMgr.regions.CONTENT),
+			'model': new MarketItemsModel()
+		});
+
+		view.render();
+
+		return this;
+	};
 	ViewMgr.prototype.newMarkets = function () {
 		this.navModel.setActivePage(NavModel.pages.NEW_MARKETS);
 
-
-		var model = new HomeModel({'title': 'New Markets'});
-		var view  = new HomeView({
+		var view  = new MarketItemsView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': model
+			'model': new MarketItemsModel()
 		});
+
 		view.render();
+
 		return this;
 	};
 	ViewMgr.prototype.topMarkets = function () {
 		this.navModel.setActivePage(NavModel.pages.TOP_MARKETS);
 
+		var view  = new MarketItemsView({
+			'el': $(ViewMgr.regions.CONTENT),
+			'model': new MarketItemsModel()
+		});
 
-		var model = new HomeModel({'title': 'Top Markets'});
-		var view  = new HomeView({
+		view.render();
+
+		return this;
+	};
+
+	// market item section
+
+	ViewMgr.prototype.marketItem = function (marketId) {
+		var model = new MarketItemModel({'title': 'Austin Pets Alive', 'marketId' : marketId});
+
+		var view  = new MarketItemView({
 			'el': $(ViewMgr.regions.CONTENT),
 			'model': model
 		});
+
 		view.render();
+		
 		return this;
 	};
 

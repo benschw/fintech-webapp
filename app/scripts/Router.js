@@ -5,17 +5,19 @@ define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 
 	var AppRouter = Backbone.Router.extend({
 		routes: {
-			'' : 'home',
-			'about': 'about',
-			'contact': 'contact',
-			'help': 'help',
-			'new-markets': 'newMarkets',
-			'top-markets': 'topMarkets',
-			':userName': 'dashboard',
-			':userName/settings': 'userSettings',
-			':userName/markets': 'userMarketsIn',
-			':userName/my-markets': 'userMarketsRun',
-			'*actions': 'defaultAction'
+			''                           : 'home',
+			'about'                      : 'about',
+			'contact'                    : 'contact',
+			'help'                       : 'help',
+			'new-markets'                : 'newMarkets',
+			'top-markets'                : 'topMarkets',
+			'random'                     : 'random',
+			':userName'                  : 'dashboard',
+			':userName/settings'         : 'userSettings',
+			':userName/markets'          : 'userMarketsIn',
+			':userName/my-markets'       : 'userMarketsRun',
+			'markets/:marketId/:seoName' : 'marketItem',
+			'*actions'                   : 'defaultAction'
 		}
 	});
 	
@@ -33,8 +35,8 @@ define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 		router.on('route:contact', function () {
 			viewMgr.contact();
 		});
-		router.on('route:help', function () {
-			viewMgr.help();
+		router.on('route:random', function () {
+			viewMgr.random();
 		});
 
 		router.on('route:dashboard', function (un) {
@@ -45,6 +47,9 @@ define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 		});
 		router.on('route:topMarkets', function () {
 			viewMgr.topMarkets();
+		});
+		router.on('route:marketItem', function (marketId) {
+			viewMgr.marketItem(marketId);
 		});
 
 		router.on('route:userSettings', function (un) {

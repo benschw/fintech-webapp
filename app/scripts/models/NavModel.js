@@ -9,6 +9,7 @@ define(['underscore', 'backbone'], function (_, Backbone) {
 			firstName: '',
 			lastName: '',
 			email: '',
+			fbId: '',
 			userName: ''
 		},
 		url: '/api/auth/status',
@@ -24,6 +25,7 @@ define(['underscore', 'backbone'], function (_, Backbone) {
 	//	HOME: 'home_page',
 		NEW_MARKETS: 'new_page',
 		TOP_MARKETS: 'top_page',
+		RANDOM: 'random_page',
 		DASHBOARD: 'dashboard_page'
 	};
 

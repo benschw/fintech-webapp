@@ -44,12 +44,43 @@ __p += '<div class="container"><!-- Main hero unit for a primary marketing messa
 return __p
 };
 
+this["JST"]["app/scripts/tpl/marketItem.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="container">\n<div class="hero-unit">\n<h1>' +
+((__t = ( title )) == null ? '' : __t) +
+'</h1>\n</div>\n</div>';
+
+}
+return __p
+};
+
+this["JST"]["app/scripts/tpl/marketItemsList.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<div class="container">\n<div class="page-header">\n<h1>' +
+((__t = ( title )) == null ? '' : __t) +
+'</h1>\n</div>\n<ul>\n';
+ for (var i=0, l=items.length; i<l; i++) { ;
+__p += '\n<li>\n' +
+((__t = ( items[i].title )) == null ? '' : __t) +
+'\n</li>\n';
+ } ;
+__p += '\n</ul>\n</div>';
+
+}
+return __p
+};
+
 this["JST"]["app/scripts/tpl/nav.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="navbar navbar-inverse navbar-fixed-top">\n<div class="navbar-inner">\n<div class="container">\n<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<a class="brand" href="/">FundraiserMarket</a>\n<div class="nav-collapse collapse">\n<ul class="nav">\n';
+__p += '<div class="navbar navbar-inverse navbar-fixed-top">\n<div class="navbar-inner">\n<div class="container">\n<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<a class="brand" href="/">FUNDR</a>\n<div class="nav-collapse collapse">\n<ul class="nav">\n';
  if (loggedIn) { ;
 __p += '\n<li ' +
 ((__t = ( activePage == 'dashboard_page' ? 'class="active"' : '' )) == null ? '' : __t) +
@@ -59,7 +90,9 @@ __p += '\n<li ' +
 ((__t = ( activePage == 'new_page' ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/new-markets">New</a></li>\n<li ' +
 ((__t = ( activePage == 'top_page' ? 'class="active"' : '' )) == null ? '' : __t) +
-'><a href="/top-markets">Top</a></li>\n';
+'><a href="/top-markets">Top</a></li>\n<li ' +
+((__t = ( activePage == 'random_page' ? 'class="active"' : '' )) == null ? '' : __t) +
+'><a href="/random">Random</a></li>\n';
  } else { ;
 __p += '\n<!-- <li ' +
 ((__t = ( activePage == 'home_page' ? 'class="active"' : '' )) == null ? '' : __t) +
@@ -67,9 +100,13 @@ __p += '\n<!-- <li ' +
  } ;
 __p += '\n</ul>';
  if (loggedIn) { ;
-__p += '\n<ul class="nav pull-right">\n<li class="dropdown">\n<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">' +
-((__t = ( email )) == null ? '' : __t) +
-' <b class="caret"></b></a>\n<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">\n<!-- <li role="presentation" class="divider"></li> -->\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/' +
+__p += '\n<ul class="nav pull-right">\n<li class="dropdown">\n<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">\n<span class="metaContainer">' +
+((__t = ( firstName )) == null ? '' : __t) +
+' ' +
+((__t = ( lastName )) == null ? '' : __t) +
+' <b class="caret"></b> </span>\n<img class="profileImage" src="http://graph.facebook.com/' +
+((__t = ( fbId )) == null ? '' : __t) +
+'/picture" />\n</a>\n<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">\n<!-- <li role="presentation" class="divider"></li> -->\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/' +
 ((__t = ( userName )) == null ? '' : __t) +
 '/settings">My Account</a></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/help">Help</a></li>\n<li role="presentation"><a role="menuitem" tabindex="-1" href="/api/auth/logout">Logout</a></li>\n</ul>\n</li>\n</ul>';
  } else { ;

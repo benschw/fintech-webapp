@@ -77,6 +77,7 @@ $resolver = new Flfc_DefaultFcChainResolver($chain);
 
 Flfc_FcChainFactory::addResolver($resolver);
 
+Util_Storage_Session::singleton();
 
 // Run App
 
