@@ -1,7 +1,7 @@
 @import 'sass-bootstrap/lib/bootstrap';
 
 body {
-	background: #ECF8FF;
+	background: #ECF8FF url(/images/bg.jpg) top center repeat-x;
 }
 .hero-unit {
 	# margin: 50px auto 0 auto;
@@ -29,7 +29,7 @@ body {
 	overflow: auto;
 }
 .fndr-list .fndr-item {
-	padding: 23px;
+	padding: 15px;
 	clear: both;
 	overflow: auto;
 	margin: 0 0 10px 0;
