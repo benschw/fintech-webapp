@@ -6,9 +6,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl', 'bootstrap'], function ($, _,
 		initialize: function () {
 			_.bindAll(this, 'render');
 
-		    this.model.on('change', this.render);
-		    
-			
+			this.model.on('change', this.render);
 		},
 		render: function () {
 			console.log('rendering nav');
