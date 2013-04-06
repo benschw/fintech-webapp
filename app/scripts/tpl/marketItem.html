@@ -1,21 +1,27 @@
 <div class="container">
-	<div class="fndr-hero">
-		<h1><%= marketName %></h1>
-		<p><%= discription %></p>
+	<div class="fndr-market-hero">
+		<div class="img-container">
+			<img src="" />
+		</div>
+		<div class="meta">
+			<h1><%= marketName %></h1>
+			<p><%= discription %></p>
+		</div>
+	</div>
+	<div>
 		<canvas id='trendLine' width='500' height='120'></canvas>
 	</div>
-<<<<<<< HEAD
-=======
+
 	<script>
 	(function($) {
 	
 		if (typeof console == 'undefined') console = {};
 
 		//private vars
-	
+
 		//private methods
-	
-		TrendChart = {
+
+		var TrendChart = {
 			//public methods
 			isSupported: function(){
 				var elem = document.createElement('canvas');
@@ -134,38 +140,33 @@
 			}
 		}
 
+		TrendChart.draw($('#trendLine')[0],{
+			points:[
+				{x:0, y:20},
+				{x:.05, y:25},
+				{x:.10, y:30},
+				{x:.15, y:30},
+				{x:.20, y:35},
+				{x:.25, y:40},
+				{x:.30, y:60}
+			]
+		});
+
 	}(jQuery));
 	
-	TrendChart.draw($('#trendLine')[0],{
-		points:[
-			{x:0, y:20},
-			{x:.05, y:25},
-			{x:.10, y:30},
-			{x:.15, y:30},
-			{x:.20, y:35},
-			{x:.25, y:40},
-			{x:.30, y:60}
-		]
-	});
 	</script>
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'funderlocal'; // required: replace example with your forum shortname
->>>>>>> a933fd411590b8db95a0d5d22e0ba887504da397
-
+	
 	<div id="disqus_thread"></div>
-
 	<script type="text/javascript">
-	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-	var disqus_shortname = 'funderlocal'; // required: replace example with your forum shortname
+		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+		var disqus_shortname = 'funderlocal'; // required: replace example with your forum shortname
 
-	/* * * DON'T EDIT BELOW THIS LINE * * */
-	(function() {
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
 	</script>
 	<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 

@@ -8,6 +8,8 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			this.model.on('add', this.render);
 		},
 		render: function () {
+			$('body').addClass('big-bg');
+
 			var compiledTemplate = tpl['app/scripts/tpl/marketItem.html'](this.model.toJSON());
 
 			this.$el.empty();

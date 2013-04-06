@@ -8,6 +8,8 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			this.model.on('add', this.render);
 		},
 		render: function () {
+			$('body').removeClass();
+
 			var compiledTemplate = tpl['app/scripts/tpl/marketItemsList.html']({
 				title : this.options.title,
 				items : this.model.toJSON()

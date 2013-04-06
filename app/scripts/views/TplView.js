@@ -7,6 +7,8 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, te
 			
 		},
 		render: function () {
+			$('body').removeClass();
+
 			var data = {};
 
 			var compiledTemplate = templates[this.options.tplPath](data);
