@@ -6,6 +6,13 @@
 
 
 },{
+	"name"         : "payment",
+	"route"        : "/api/payment/:command",
+	"module"       : "FinTech",
+	"commandGroup" : "Payment"
+
+
+},{
 	"name"         : "api",
 	"route"        : "/api/:command",
 	"module"       : "FinTech",
