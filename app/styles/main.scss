@@ -1,7 +1,7 @@
 @import 'sass-bootstrap/lib/bootstrap';
 
 body {
-	background: #ECF8FF;
+	background: #ECF8FF url(/images/bg.jpg) top center repeat-x;
 }
 .hero-unit {
 	# margin: 50px auto 0 auto;
@@ -16,8 +16,14 @@ body {
 	right: 0;
 	margin: -26px 0 0 0;
 }
+.fndr-list-title {
+	margin: 10px 0 35px 0;
+}
+.fndr-list-title h1 {
+	font-size: 26px;
+}
 .fndr-nav.container {
-	padding: 10px 0;
+	padding: 30px 0 0 0;
 }
 .fndr-nav.container .navbar {
 	margin: 0;
@@ -26,11 +32,40 @@ body {
 	padding: 0;
 	margin: 0;
 	list-style: none;
+	overflow: auto;
 }
 .fndr-list .fndr-item {
-	padding: 10px;
+	padding: 15px;
+	clear: both;
+	overflow: auto;
+	margin: 0 0 10px 0;
 }
-.fndr-list .fndr-item.odd {
+.fndr-list .fndr-item .img-container {
+	width: 100px;
+	float: left;
+	margin: 0 23px 0 0;
+	overflow: hidden;
+}
+.fndr-list .fndr-item .meta {
+	width: 600px;
+	float: left;
+	margin: 12px 0 0 0;
+}
+.fndr-list .fndr-item .meta h3 {
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+}
+.fndr-list .fndr-item .meta p {
+	font-size: 18px;
+}
+.fndr-list .fndr-item .btn-wrapper {
+	width: 100px;
+	float: right;
+	margin: 35px 0 0 0;
+	text-align: right;
+}
+.fndr-list .fndr-item.even {
 	background: #E7F3FA;
 }
 
