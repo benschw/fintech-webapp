@@ -41,7 +41,7 @@ class SvcDwollaTest extends PHPUnit_Framework_TestCase {
 		 *   Send money ($1.00) to a Dwolla ID 
 		 **/
 		// $transactionId = $Dwolla->send('1138', '812-734-7288', 0.01); //Susi
-		$transactionId = $Dwolla->send('4321', '812-734-7288', 0.01); //Ben
+		$transactionId = $Dwolla->send('4321', '812-713-9234', 0.01); //Ben
 
 		if(!$transactionId) { echo "Error: {$Dwolla->getError()} \n"; } // Check for errors
 		else { echo "Send transaction ID: {$transactionId} \n"; } // Print Transaction ID
