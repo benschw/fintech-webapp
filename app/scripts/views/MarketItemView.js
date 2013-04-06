@@ -4,17 +4,9 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 	
 	var View = Backbone.View.extend({
 		initialize: function () {
-			
+			_.bindAll(this, 'render');
+			this.model.on('add', this.render);
 		},
-		
-		events: {
-			'click #test': 'testFcn'
-		},
-		
-		testFcn: function (e) {
-			e.preventDefault();
-		},
-		
 		render: function () {
 			var compiledTemplate = tpl['app/scripts/tpl/marketItem.html'](this.model.toJSON());
 
