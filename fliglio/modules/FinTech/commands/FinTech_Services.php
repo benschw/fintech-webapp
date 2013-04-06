@@ -37,10 +37,11 @@ class FinTech_Services implements Flfc_Routable {
 
 		return new Fltk_JsonView(array(
 			'id' => 1,
-			'title' => 'animal things',
-			'description' => 'things regarding animals',
-			'seoName' => 'animal-things',
-			'profileImagePath' => ''
+			'orgName'        => 'Austin Pets Alive',
+            'marketName'     => '$25 Gift Cards to Local Restraunts',
+            'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            'orgImage'       => '/images/logos/austindog.png',
+            'seoName'        => 'austin-pets-alive-gift-cards'
 		));
 	}
 
@@ -49,10 +50,11 @@ class FinTech_Services implements Flfc_Routable {
 		return new Fltk_JsonView(array(
 			array(
 				'id' => 1,
-				'title' => 'animal things',
-				'description' => 'things regarding animals',
-				'seoName' => 'animal-things',
-				'profileImagePath' => ''
+				'orgName'        => 'Austin Pets Alive',
+           		'marketName'     => '$25 Gift Cards to Local Restraunts',
+            	'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'orgImage'       => '/images/logos/austindog.png',
+            	'seoName'        => 'austin-pets-alive-gift-cards'
 			),
 		));
 	}
