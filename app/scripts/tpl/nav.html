@@ -11,13 +11,13 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<% if (loggedIn) { %>
-							<li <%= activePage == 'dashboard_page' ? 'class="active"' : '' %>><a href="/<%= userName %>">Home</a></li>
-							<li <%= activePage == 'new_page' ? 'class="active"' : '' %>><a href="/new-markets">New</a></li>
-							<li <%= activePage == 'top_page' ? 'class="active"' : '' %>><a href="/top-markets">Top</a></li>
-							<li <%= activePage == 'random_page' ? 'class="active"' : '' %>><a href="/random">Random</a></li>
+							<li <%= activePage == 'dashboard_page' ? 'class="active"' : '' %>><a href="/<%= userName %>">Dashboard</a></li>
 						<% } else { %>
 						<!-- <li <%= activePage == 'home_page' ? 'class="active"' : '' %>><a href="/">Home</a></li> -->
 						<% } %>
+						<li <%= activePage == 'new_page' ? 'class="active"' : '' %>><a href="/new-markets">New</a></li>
+						<li <%= activePage == 'top_page' ? 'class="active"' : '' %>><a href="/top-markets">Top</a></li>
+						<li <%= activePage == 'random_page' ? 'class="active"' : '' %>><a href="/random">Random</a></li>
 					</ul>
 
 					<% if (loggedIn) { %>

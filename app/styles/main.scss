@@ -22,3 +22,16 @@ body {
 .fndr-nav.container .navbar {
 	margin: 0;
 }
+.fndr-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.fndr-list .fndr-item {
+	padding: 10px;
+}
+.fndr-list .fndr-item.odd {
+	background: #E7F3FA;
+}
+
+
