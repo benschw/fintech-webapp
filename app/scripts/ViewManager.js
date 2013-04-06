@@ -102,11 +102,14 @@ define(['jquery', 'underscore', 'backbone',
 	ViewMgr.prototype.random = function () {
 		this.navModel.setActivePage(NavModel.pages.RANDOM);
 
+		var model = new MarketItemsModel();
 		var view  = new MarketItemsView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': new MarketItemsModel({'title' : 'Random Markets'})
+			'model': model,
+			'title' : 'Random Markets'
 		});
 
+		model.fetch();
 		view.render();
 
 		return this;
@@ -114,11 +117,14 @@ define(['jquery', 'underscore', 'backbone',
 	ViewMgr.prototype.newMarkets = function () {
 		this.navModel.setActivePage(NavModel.pages.NEW_MARKETS);
 
+		var model = new MarketItemsModel();
 		var view  = new MarketItemsView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': new MarketItemsModel({'title' : 'New Markets'})
+			'model': model,
+			'title' : 'New Markets'
 		});
 
+		model.fetch();
 		view.render();
 
 		return this;
@@ -126,11 +132,14 @@ define(['jquery', 'underscore', 'backbone',
 	ViewMgr.prototype.topMarkets = function () {
 		this.navModel.setActivePage(NavModel.pages.TOP_MARKETS);
 
+		var model = new MarketItemsModel();
 		var view  = new MarketItemsView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': new MarketItemsModel({'title' : 'Top Markets'})
+			'model': model,
+			'title' : 'Top Markets'
 		});
 
+		model.fetch();
 		view.render();
 
 		return this;

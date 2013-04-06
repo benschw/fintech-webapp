@@ -4,22 +4,18 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 	
 	var View = Backbone.View.extend({
 		initialize: function () {
-			
+			_.bindAll(this, 'render');
+			this.model.on('add', this.render);
 		},
-		
-		events: {
-			'click #test': 'testFcn'
-		},
-		
-		testFcn: function (e) {
-			e.preventDefault();
-		},
-		
 		render: function () {
-			var compiledTemplate = tpl['app/scripts/tpl/marketItemsList.html'](this.model.toJSON());
+			var compiledTemplate = tpl['app/scripts/tpl/marketItemsList.html']({
+				title : this.options.title,
+				items : this.model.toJSON()
+			});
 
 			this.$el.empty();
 			this.$el.append(compiledTemplate).show();
+
 			return this;
 		}
 	});
