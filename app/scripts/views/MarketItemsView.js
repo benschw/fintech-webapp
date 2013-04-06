@@ -20,7 +20,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 		render: function () {
 			console.log('rendering items');
 			console.log(this.model.toJSON());
-			console.log('rendering here');
+			console.log('rendering items');
 			console.log(this.title);
 
 			var compiledTemplate = tpl['app/scripts/tpl/marketItemsList.html']({

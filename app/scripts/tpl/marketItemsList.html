@@ -3,17 +3,17 @@
 		<h1><%= title %></h1>
 	</div>
 	<ul class="fndr-list">
-		<% for (var i=0, l=items.length; i<l; i++) { %>
+		<% for (var i=0, l=models.length; i<l; i++) { %>
 			<li class="fndr-item <%= i%2? 'even' : 'odd' %>">
 				<div class="img-container">
-					<img src="<%= items[i].orgImage %>" />
+					<img src="<%= models[i].orgImage %>" />
 				</div>
 				<div class="meta">
-					<h3><%= items[i].orgName %></h3>
-					<p><%= items[i].marketName %></p>
+					<h3><%= models[i].orgName %></h3>
+					<p><%= models[i].marketName %></p>
 				</div>
 				<div class="btn-wrapper">
-					<a href="/markets/<%= items[i].id %>/<%= items[i].seoName %>" class="btn btn-primary">More</a>
+					<a href="/markets/<%= models[i].id %>/<%= models[i].seoName %>" class="btn btn-primary">More</a>
 				</div>
 			</li>
 		<% } %>
