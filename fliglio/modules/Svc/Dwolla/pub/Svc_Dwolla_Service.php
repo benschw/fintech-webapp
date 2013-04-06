@@ -34,13 +34,17 @@ class Svc_Dwolla_Service {
 		return $url;
 	}
 
-	public function sendMoney($pin, $destination, $amount, $notes)
+	public function sendMoney($pin, $destination, $amount, $notes = null)
 	{
-		$this->dwolla->setToken("I44Cfl8KkFxrxKwig1BjF1XKYNSDY1QIJ6YQhg68N/vqKRO0kG");
+		$this->dwolla->setToken("RfExez5vQmtbNvUf+7KM6GWhB3eWxl9/eYagAmkeaGO3EucWjp");
 
 		$tid = $this->dwolla->send($pin, $destination, $amount, $notes);
-		if(!$tid) { echo "Error: {$this->dwolla->getError()} \n"; }
+		if(!$tid) 
+			{ 
+				echo "Error: {$this->dwolla->getError()} \n"; 
+			}
 		echo "Send transaction ID: {$tid} \n";
+		return $tid;
 	}
 
 	// protected function makeRequest($url, $body = null, $headers = array()) {
