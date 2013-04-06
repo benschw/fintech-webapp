@@ -21,9 +21,9 @@ define(['underscore', 'backbone'], function (_, Backbone) {
 	});
 
 	Model.pages = {
-		HOME: 'home_page',
-		ABOUT: 'about_page',
-		CONTACT: 'contact_page',
+	//	HOME: 'home_page',
+		NEW_MARKETS: 'new_page',
+		TOP_MARKETS: 'top_page',
 		DASHBOARD: 'dashboard_page'
 	};
 

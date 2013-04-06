@@ -40,6 +40,17 @@ class FinTech_Auth implements Flfc_Routable {
 		));
 	}
 	
+	public function fakelogin() {
+		$sess = Util_Storage_Session::singleton();
+		$sess->oauth_id  = 123;//$user_profile['id'];
+		$sess->firstName = 'Ben';//$user_profile['first_name'];
+		$sess->lastName  = 'Schwartz';//$user_profile['last_name'];
+		$sess->email     = 'benschw@gmail.com';//$user_profile['email'];
+		$sess->userName  = strtolower($sess->firstName . $sess->lastName); // DO THIS REAL?
+
+		throw new Flfc_RedirectException("Logged in, redirecting", 302, "/#/".$sess->userName);
+	}
+
 	/**
 	 * @return Fltk_JsonView
 	 */
@@ -58,7 +69,6 @@ class FinTech_Auth implements Flfc_Routable {
 				// Proceed knowing you have a logged in user who's authenticated.
 				$user_profile = $facebook->api('/me');
 
-				$sess = Util_Storage_Session::singleton();
 				$sess->oauth_id  = $user_profile['id'];
 				$sess->firstName = $user_profile['first_name'];
 				$sess->lastName  = $user_profile['last_name'];

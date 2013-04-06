@@ -6,16 +6,16 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="brand" href="#">Scalpable</a>
+			<a class="brand" href="/">FundraiserMarket</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<% if (loggedIn) { %>
 						<li <%= activePage == 'dashboard_page' ? 'class="active"' : '' %>><a href="/<%= userName %>">Home</a></li>
+						<li <%= activePage == 'new_page' ? 'class="active"' : '' %>><a href="/new-markets">New</a></li>
+						<li <%= activePage == 'top_page' ? 'class="active"' : '' %>><a href="/top-markets">Top</a></li>
 					<% } else { %>
-					<li <%= activePage == 'home_page' ? 'class="active"' : '' %>><a href="/">Home</a></li>
+					<!-- <li <%= activePage == 'home_page' ? 'class="active"' : '' %>><a href="/">Home</a></li> -->
 					<% } %>
-					<li <%= activePage == 'about_page' ? 'class="active"' : '' %>><a href="/about">About</a></li>
-					<li <%= activePage == 'contact_page' ? 'class="active"' : '' %>><a href="/contact">Contact</a></li>
 				</ul>
 
 				<% if (loggedIn) { %>
@@ -23,10 +23,9 @@
 						<li class="dropdown">
 							<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= email %> <b class="caret"></b></a>
 							<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>">Dashboard</a></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Help</a></li>
-								<li role="presentation" class="divider"></li>
-								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>/settings">Settings</a></li>
+								<!-- <li role="presentation" class="divider"></li> -->
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="/<%= userName %>/settings">My Account</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1" href="/help">Help</a></li>
 								<li role="presentation"><a role="menuitem" tabindex="-1" href="/api/auth/logout">Logout</a></li>
 							</ul>
 						</li>
