@@ -1,0 +1,17 @@
+<phpunit 
+		bootstrap="basic.php"
+		colors="true">
+
+	<groups>
+		<include>
+			<group>int</group>
+			<group>db</group>
+		</include>
+	</groups>
+	<testsuites>
+	    <testsuite name="Tests">
+			<directory>../tests/packages</directory>
+			<directory>../tests/modules</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>
