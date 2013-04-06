@@ -40,7 +40,7 @@ class FinTech_Services implements Flfc_Routable {
 			'title' => 'animal things',
 			'description' => 'things regarding animals',
 			'seoName' => 'animal-things',
-			'profileImagePath' =>
+			'profileImagePath' => ''
 		));
 	}
 
@@ -52,7 +52,7 @@ class FinTech_Services implements Flfc_Routable {
 				'title' => 'animal things',
 				'description' => 'things regarding animals',
 				'seoName' => 'animal-things',
-				'profileImagePath' =>
+				'profileImagePath' => ''
 			),
 		));
 	}
