@@ -21,19 +21,20 @@ class FinTech_Services implements Flfc_Routable {
 	 *
 	 * @return Fltk_JsonView
 	 */
-	public function foo() {
-		$fooDbm = FinTech_MapperRegistry::get()->db()->get('FinTech_Foo');
+	public function getFoo() {
+#		$fooDbm = FinTech_MapperRegistry::get()->db()->get('FinTech_Foo');
 
-		$f = new FinTech_Foo("now it is " . date('l jS \of F Y h:i:s A'));
+#		$f = new FinTech_Foo("now it is " . date('l jS \of F Y h:i:s A'));
 
-		$fooDbm->save($f);
+#		$fooDbm->save($f);
 
-		$foo = $fooDbm->find($f->getId());
+#		$foo = $fooDbm->find($f->getId());
 		
-		assert($f->getVal() === $foo->getVal());
+#		assert($f->getVal() === $foo->getVal());
 		
 		return new Fltk_JsonView(array(
-			"bar" => $foo->getVal()
+#			"bar" => $foo->getVal()
+			"bar" => "baz"
 		));
 	}
 	
