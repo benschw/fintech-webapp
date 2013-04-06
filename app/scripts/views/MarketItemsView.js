@@ -24,7 +24,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			console.log(this.title);
 
 			var compiledTemplate = tpl['app/scripts/tpl/marketItemsList.html']({
-				title : this.title,
+				title : this.options.title,
 				items : this.model.toJSON()
 			});
 
