@@ -1,6 +1,51 @@
 {
-    "hash": "852317678973ab058695ce7b39427dc2",
+    "hash": "9a48daba8536263f69dbc8214ddd722d",
     "packages": [
+        {
+            "name": "dwolla/dwolla-php",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Dwolla/dwolla-php",
+                "reference": "1.5.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Dwolla/dwolla-php/zipball/1.5.1",
+                "reference": "1.5.1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/dwolla.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Schonfeld",
+                    "email": "michael@dwolla.com",
+                    "homepage": "http://dwolla.com"
+                }
+            ],
+            "description": "Official PHP Wrapper for Dwolla's API",
+            "homepage": "http://developers.dwolla.com/dev",
+            "keywords": [
+                "api",
+                "dwolla",
+                "payment"
+            ],
+            "time": "2013-02-06 16:27:40"
+        },
         {
             "name": "facebook/php-sdk",
             "version": "dev-master",

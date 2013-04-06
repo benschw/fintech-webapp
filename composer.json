@@ -3,6 +3,7 @@
 	
 	"require": {
 		"nikic/PHP-Parser": "dev-master",
-		"facebook/php-sdk": "dev-master"
+		"facebook/php-sdk": "dev-master",
+		"dwolla/dwolla-php": "1.5.1"
 	}
 }
