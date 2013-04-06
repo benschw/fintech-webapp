@@ -63,11 +63,21 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="container">\n<div class="page-header">\n<h1>' +
 ((__t = ( title )) == null ? '' : __t) +
-'</h1>\n</div>\n<ul>\n';
+'</h1>\n</div>\n<ul class="fndr-list">\n';
  for (var i=0, l=items.length; i<l; i++) { ;
-__p += '\n<li>\n' +
+__p += '\n<li class="fndr-item ' +
+((__t = ( i%2? 'even' : 'odd' )) == null ? '' : __t) +
+'">\n<img src="' +
+((__t = ( items[i].profileImagePath )) == null ? '' : __t) +
+'" />\n<div class="meta">\n<h3>' +
 ((__t = ( items[i].title )) == null ? '' : __t) +
-'\n</li>\n';
+'</h3>\n<p>' +
+((__t = ( items[i].description )) == null ? '' : __t) +
+'</p>\n</div>\n<div class="btn-wrapper">\n<a href="/markets/' +
+((__t = ( items[i].id )) == null ? '' : __t) +
+'/' +
+((__t = ( items[i].seoName )) == null ? '' : __t) +
+'" class="btn btn-primary">more</a>\n</div>\n</li>\n';
  } ;
 __p += '\n</ul>\n</div>';
 
