@@ -56,6 +56,47 @@ class FinTech_Services implements Flfc_Routable {
             	'orgImage'       => '/images/logos/austindog.png',
             	'seoName'        => 'austin-pets-alive-gift-cards'
 			),
+			array(
+				'id' => 2,
+				'orgName'        => 'March of Dimes',
+           		'marketName'     => '$25 Gift Cards to Local Restraunts',
+            	'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'orgImage'       => '/images/logos/marchofdimes.png',
+            	'seoName'        => 'march-of-dimes'
+			),
+			array(
+				'id' => 3,
+				'orgName'        => 'Michael J Fox',
+           		'marketName'     => '$25 Gift Cards to Local Restraunts',
+            	'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'orgImage'       => '/images/logos/michaeljfox.png',
+            	'seoName'        => 'michael-j-fox'
+			),
+			array(
+				'id' => 4,
+				'orgName'        => 'Red Cross',
+           		'marketName'     => '$25 Gift Cards to Local Restraunts',
+            	'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'orgImage'       => '/images/logos/redcross.png',
+            	'seoName'        => 'red-cross'
+			),
+			array(
+				'id' => 5,
+				'orgName'        => 'Stand Up to Cancer',
+           		'marketName'     => '$25 Gift Cards to Local Restraunts',
+            	'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'orgImage'       => '/images/logos/standuptocancer.png',
+            	'seoName'        => 'stand-up-to-cancer'
+			),
+			array(
+				'id' => 6,
+				'orgName'        => 'American Humane',
+           		'marketName'     => '$25 Gift Cards to Local Restraunts',
+            	'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'orgImage'       => '/images/logos/americanhumane.png',
+            	'seoName'        => 'american-humane'
+			),
+
 		));
 	}
 	
