@@ -80,7 +80,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="navbar navbar-inverse navbar-fixed-top">\n<div class="navbar-inner">\n<div class="container">\n<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<a class="brand" href="/">FUNDR</a>\n<div class="nav-collapse collapse">\n<ul class="nav">\n';
+__p += '<div class="container fndr-nav">\n<div class="navbar navbar-inverse">\n<div class="navbar-inner">\n<div class="container">\n<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<a class="brand" href="/">FUNDR</a>\n<div class="nav-collapse collapse">\n<ul class="nav">\n';
  if (loggedIn) { ;
 __p += '\n<li ' +
 ((__t = ( activePage == 'dashboard_page' ? 'class="active"' : '' )) == null ? '' : __t) +
@@ -112,7 +112,7 @@ __p += '\n<ul class="nav pull-right">\n<li class="dropdown">\n<a href="#" id="dr
  } else { ;
 __p += '\n<div class="navbar-text pull-right">\n<a href="/api/auth/login"><img src="/images/fb-login.png" /></a>\n</div>\n';
  }  ;
-__p += '\n</div>\n</div>\n</div>\n</div>';
+__p += '\n</div>\n</div>\n</div>\n</div>\n</div>';
 
 }
 return __p
