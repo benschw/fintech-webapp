@@ -63,11 +63,21 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '<div class="container">\n<div class="page-header">\n<h1>' +
 ((__t = ( title )) == null ? '' : __t) +
-'</h1>\n</div>\n<ul>\n';
+'</h1>\n</div>\n<ul class="fndr-list">\n';
  for (var i=0, l=items.length; i<l; i++) { ;
-__p += '\n<li>\n' +
+__p += '\n<li class="fndr-item ' +
+((__t = ( i%2? 'even' : 'odd' )) == null ? '' : __t) +
+'">\n<img src="' +
+((__t = ( items[i].profileImagePath )) == null ? '' : __t) +
+'" />\n<div class="meta">\n<h3>' +
 ((__t = ( items[i].title )) == null ? '' : __t) +
-'\n</li>\n';
+'</h3>\n<p>' +
+((__t = ( items[i].description )) == null ? '' : __t) +
+'</p>\n</div>\n<div class="btn-wrapper">\n<a href="/markets/' +
+((__t = ( items[i].id )) == null ? '' : __t) +
+'/' +
+((__t = ( items[i].seoName )) == null ? '' : __t) +
+'" class="btn btn-primary">more</a>\n</div>\n</li>\n';
  } ;
 __p += '\n</ul>\n</div>';
 
@@ -86,19 +96,19 @@ __p += '\n<li ' +
 ((__t = ( activePage == 'dashboard_page' ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/' +
 ((__t = ( userName )) == null ? '' : __t) +
-'">Home</a></li>\n<li ' +
-((__t = ( activePage == 'new_page' ? 'class="active"' : '' )) == null ? '' : __t) +
-'><a href="/new-markets">New</a></li>\n<li ' +
-((__t = ( activePage == 'top_page' ? 'class="active"' : '' )) == null ? '' : __t) +
-'><a href="/top-markets">Top</a></li>\n<li ' +
-((__t = ( activePage == 'random_page' ? 'class="active"' : '' )) == null ? '' : __t) +
-'><a href="/random">Random</a></li>\n';
+'">Dashboard</a></li>\n';
  } else { ;
 __p += '\n<!-- <li ' +
 ((__t = ( activePage == 'home_page' ? 'class="active"' : '' )) == null ? '' : __t) +
 '><a href="/">Home</a></li> -->\n';
  } ;
-__p += '\n</ul>';
+__p += '\n<li ' +
+((__t = ( activePage == 'new_page' ? 'class="active"' : '' )) == null ? '' : __t) +
+'><a href="/new-markets">New</a></li>\n<li ' +
+((__t = ( activePage == 'top_page' ? 'class="active"' : '' )) == null ? '' : __t) +
+'><a href="/top-markets">Top</a></li>\n<li ' +
+((__t = ( activePage == 'random_page' ? 'class="active"' : '' )) == null ? '' : __t) +
+'><a href="/random">Random</a></li>\n</ul>';
  if (loggedIn) { ;
 __p += '\n<ul class="nav pull-right">\n<li class="dropdown">\n<a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">\n<span class="metaContainer">' +
 ((__t = ( firstName )) == null ? '' : __t) +

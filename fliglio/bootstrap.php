@@ -8,6 +8,7 @@
  * @requires Fl.Mapper.Deps
  * @requires Util.Db.Deps
  * @requires Web.Deps
+ * @requires FinTech
  * 
  */
 if (!defined("APPLICATION_ROOT")) {
@@ -79,7 +80,7 @@ Fl_Dep_Map::singleton()
 
 // Load Front Controller Chain
 
-$chain = new Flfc_DebugApp(new Flfc_HttpApp(new Flfc_RoutingApp(new Flfc_ValidationApp(new Flfc_ModuleApp()))));
+$chain = new Flfc_DebugApp(new Flfc_HttpApp(new Flfc_RoutingApp(new Flfc_ValidationApp(new FinTech_RestApp(new Flfc_ModuleApp())))));
 
 $resolver = new Flfc_DefaultFcChainResolver($chain);
 

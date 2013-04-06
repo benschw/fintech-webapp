@@ -36,36 +36,36 @@ class Svc_Dwolla_Service {
 
 	public function sendMoney($pin, $destination, $amount, $notes)
 	{
-		$this->dwolla->setToken("M53T4Evtxm5nBbDEF9+TjsiDhQf19KuZNuPm0lx11SHtEsuN8Q");
+		$this->dwolla->setToken("I44Cfl8KkFxrxKwig1BjF1XKYNSDY1QIJ6YQhg68N/vqKRO0kG");
 
 		$tid = $this->dwolla->send($pin, $destination, $amount, $notes);
 		if(!$tid) { echo "Error: {$this->dwolla->getError()} \n"; }
 		echo "Send transaction ID: {$tid} \n";
 	}
 
-	protected function makeRequest($url, $body = null, $headers = array()) {
-		$headers[] = "Accept: application/json; charset=utf-8";
-		$headers[] = "Content-Type: application/json; charset=utf-8";
+	// protected function makeRequest($url, $body = null, $headers = array()) {
+	// 	$headers[] = "Accept: application/json; charset=utf-8";
+	// 	$headers[] = "Content-Type: application/json; charset=utf-8";
 		
-		$response = new Web_CurlResponse();
+	// 	$response = new Web_CurlResponse();
 
-		Web_Curl::makeRequest(
-			new Web_CurlRequest(
-				Web_Curl::METHOD_POST,
-				self::BASE_URL.$url,
-				json_encode($body),
-				$headers
-			),
-			$response
-		);
+	// 	Web_Curl::makeRequest(
+	// 		new Web_CurlRequest(
+	// 			Web_Curl::METHOD_POST,
+	// 			self::BASE_URL.$url,
+	// 			json_encode($body),
+	// 			$headers
+	// 		),
+	// 		$response
+	// 	);
 
-		if ($response->getErrorNumber()) {
-			throw new Svc_Dwolla_CurlErrorException(sprintf(
-				"Error (%s) '%s' for '%s'", 
-				$response->getErrorNumber(), $response->getErrorMessage(), $url
-			));
-		}
+	// 	if ($response->getErrorNumber()) {
+	// 		throw new Svc_Dwolla_CurlErrorException(sprintf(
+	// 			"Error (%s) '%s' for '%s'", 
+	// 			$response->getErrorNumber(), $response->getErrorMessage(), $url
+	// 		));
+	// 	}
 
-		return $response->getContent();
-	}
+	// 	return $response->getContent();
+	// }
 }
