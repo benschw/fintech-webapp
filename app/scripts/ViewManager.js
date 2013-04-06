@@ -104,7 +104,7 @@ define(['jquery', 'underscore', 'backbone',
 
 		var view  = new MarketItemsView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': new MarketItemsModel()
+			'model': new MarketItemsModel({'title' : 'Random Markets'})
 		});
 
 		view.render();
@@ -116,7 +116,7 @@ define(['jquery', 'underscore', 'backbone',
 
 		var view  = new MarketItemsView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': new MarketItemsModel()
+			'model': new MarketItemsModel({'title' : 'New Markets'})
 		});
 
 		view.render();
@@ -128,7 +128,7 @@ define(['jquery', 'underscore', 'backbone',
 
 		var view  = new MarketItemsView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': new MarketItemsModel()
+			'model': new MarketItemsModel({'title' : 'Top Markets'})
 		});
 
 		view.render();

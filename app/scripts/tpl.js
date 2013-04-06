@@ -50,7 +50,7 @@ var __t, __p = '', __e = _.escape;
 with (obj) {
 __p += '<div class="container">\n<div class="hero-unit">\n<h1>' +
 ((__t = ( title )) == null ? '' : __t) +
-'</h1>\n</div>\n</div>';
+'</h1>\n<canvas id=\'trendLine\' width=\'500\' height=\'120\'></canvas>\n</div>\n<div id="disqus_thread"></div>\n<script type="text/javascript">\n/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */\nvar disqus_shortname = \'funderlocal\'; // required: replace example with your forum shortname/* * * DON\'T EDIT BELOW THIS LINE * * */\n(function() {\nvar dsq = document.createElement(\'script\'); dsq.type = \'text/javascript\'; dsq.async = true;\ndsq.src = \'//\' + disqus_shortname + \'.disqus.com/embed.js\';\n(document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);\n})();\n</script>\n<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>\n<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>\n</div>';
 
 }
 return __p
@@ -80,7 +80,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="navbar navbar-inverse navbar-fixed-top">\n<div class="navbar-inner">\n<div class="container">\n<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<a class="brand" href="/">FUNDR</a>\n<div class="nav-collapse collapse">\n<ul class="nav">\n';
+__p += '<div class="container fndr-nav">\n<div class="navbar navbar-inverse">\n<div class="navbar-inner">\n<div class="container">\n<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n<span class="icon-bar"></span>\n</button>\n<a class="brand" href="/">FUNDR</a>\n<div class="nav-collapse collapse">\n<ul class="nav">\n';
  if (loggedIn) { ;
 __p += '\n<li ' +
 ((__t = ( activePage == 'dashboard_page' ? 'class="active"' : '' )) == null ? '' : __t) +
@@ -112,7 +112,7 @@ __p += '\n<ul class="nav pull-right">\n<li class="dropdown">\n<a href="#" id="dr
  } else { ;
 __p += '\n<div class="navbar-text pull-right">\n<a href="/api/auth/login"><img src="/images/fb-login.png" /></a>\n</div>\n';
  }  ;
-__p += '\n</div>\n</div>\n</div>\n</div>';
+__p += '\n</div>\n</div>\n</div>\n</div>\n</div>';
 
 }
 return __p
