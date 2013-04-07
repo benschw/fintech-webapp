@@ -63,8 +63,6 @@ define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 		});
 
 
-
-
 		router.on('route:defaultAction', function (actions) {
 			console.log('No route:', actions);
 		});

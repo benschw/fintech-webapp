@@ -7,11 +7,12 @@ define(['jquery', 'underscore', 'backbone', 'tpl', 'bootstrap'], function ($, _,
 //			_.bindAll(this, 'render');
 
 //		    this.model.on('change', this.render);
-		    
-			
 		},
 		render: function () {
+			$('body').removeClass();
+
 			console.log('rendering user nav');
+
 			var compiledTemplate = tpl['app/scripts/tpl/userNav.html'](this.model.toJSON());
 			
 			this.$el.empty();

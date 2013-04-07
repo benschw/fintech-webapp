@@ -3,6 +3,9 @@
 body {
 	background: #ECF8FF url(/images/bg.jpg) top center repeat-x;
 }
+body.big-bg {
+	background: #ECF8FF url(/images/bigbg.png) top center repeat-x;
+}
 .hero-unit {
 	# margin: 50px auto 0 auto;
 	# width: 300px;

@@ -16,6 +16,8 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 		},
 		
 		render: function () {
+			$('body').removeClass();
+
 			var compiledTemplate = tpl['app/scripts/tpl/home.html'](this.model.toJSON());
 
 			this.$el.empty();
