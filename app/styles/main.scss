@@ -188,6 +188,11 @@ body.home {
 	-webkit-box-shadow: 0px 10px 20px 0 rgba(0,0,0,0.50);
 	box-shadow:         0px 10px 20px 0 rgba(0,0,0,0.50);
 }
+.fndr-modal-layer .fndr-popup-container .fndr-progress {
+	display: block;
+	text-align: center;
+	line-height: 180px;
+}
 .fndr-close {
 	margin-right: 5px;
 }
