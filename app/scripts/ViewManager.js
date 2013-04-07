@@ -128,7 +128,7 @@ define(['jquery', 'underscore', 'backbone',
 			'title' : 'New Markets'
 		});
 
-		model.fetch({sort: 'new'});
+		model.fetch({data: {sort: 'new'}});
 		view.render();
 
 		return this;
@@ -143,7 +143,7 @@ define(['jquery', 'underscore', 'backbone',
 			'title' : 'Top Markets'
 		});
 
-		model.fetch({sort: 'top'});
+		model.fetch({data: {sort: 'top'}});
 		view.render();
 
 		return this;
