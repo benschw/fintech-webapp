@@ -78,14 +78,16 @@ define(['jquery', 'underscore', 'backbone', 'ViewManager'],
 
 			// Ensure the protocol is not part of URL, meaning its relative.
 			// Stop the event bubbling to ensure the link will not cause a page refresh.
-			if (href.slice(protocol.length) !== protocol) {
-				if (href.substr(0, 5) !== '/api/') {
-					evt.preventDefault();
+			if (href) {
+				if (href.slice(protocol.length) !== protocol) {
+					if (href.substr(0, 5) !== '/api/') {
+						evt.preventDefault();
 
-					// Note by using Backbone.history.navigate, router events will not be
-					// triggered.  If this is a problem, change this to navigate on your
-					// router.
-					router.navigate(href, true);
+						// Note by using Backbone.history.navigate, router events will not be
+						// triggered.  If this is a problem, change this to navigate on your
+						// router.
+						router.navigate(href, true);
+					}
 				}
 			}
 		});

@@ -19,10 +19,12 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			var popup = $('#popup');
 			popup.hide();
 
-			// $('a#purchase').click(function () {
-				// console.log('Ello world');
-				// popup.show();
-			// });
+			$('a#purchase').click(function () {
+				popup.show();
+				$('#close').click(function () {
+					popup.hide();
+				});
+			});
 
 			return this;
 		}
