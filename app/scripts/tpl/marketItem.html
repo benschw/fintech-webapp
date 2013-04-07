@@ -4,6 +4,7 @@
 			<img src="<%= orgImage.substr(0, orgImage.length-4)+'_big'+orgImage.substr(orgImage.length-4) %>" />
 		</div>
 		<div class="meta">
+			<h3><%= orgName %></h3>
 			<h1><%= marketName %></h1>
 			<p><%= discription %></p>
 		</div>
@@ -18,14 +19,15 @@
 		<div class="trending">
 			<h2>Market Closes in 12 days</h2>
 			<div class="canvas">
-				<canvas id='trendLine' width='500' height='120'></canvas>
+				<canvas id='trendLine' width='540' height='120'></canvas>
+				<div class="num-left"><span>24</span>Available</div>
 			</div>
 			<div class="btn-container">
-				<a id="purchase" class="btn btn-primary btn-large">Buy for salePrice</a>
+				<a id="purchase" class="btn btn-primary btn-large">Buy for $<%= currentPrice %></a>
 			</div>
 			<div class="disclaimer">
-				After your purchase, your ticket will be up for resale for (salePrice+10). 
-				If your ticket is sold, you will be paid back your salePrice, plus we will 
+				After your purchase, your ticket will be up for resale for $<%= currentPrice+10 %>. 
+				If your ticket is sold, you will be paid back your $<%= currentPrice %>, plus we will 
 				split the profit with <%= orgName %>, less transaction fees.
 				<div class="dwolla-creds">
 					Payments powered by <span class="dwolla-logo">Dwolla</span>
