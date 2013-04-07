@@ -11,6 +11,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			console.log('Here');
 			console.log(this.model);
 			
+			console.log(this.model.toJSON());
 			var compiledTemplate = tpl['app/scripts/tpl/txnList.html']({
 				items : this.model.toJSON()
 			});
