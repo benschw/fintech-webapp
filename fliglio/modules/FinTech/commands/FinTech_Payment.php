@@ -38,6 +38,8 @@ class FinTech_Payment implements Flfc_Routable {
 			$service = new Svc_Dwolla_Service();
 			$transactionId = $service->sendMoney($pin, $destination, $amount, $notes);
 			
+			$market = $db->Market->update(array("id" => (int)$marketItemId), array('$set' => array("currentPrice" => $market['currentPrice'] + .01)));
+
 			return new Fltk_JsonView(array(
 				"message" => "success",
 				"transactionId" => $transactionId
