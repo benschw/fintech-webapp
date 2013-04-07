@@ -154,7 +154,9 @@ define(['jquery', 'underscore', 'backbone',
 	// market item section
 
 	ViewMgr.prototype.marketItem = function (marketId) {
-		var txnModel = new MarketTransactionsModel({'marketId': marketId});
+		var txnModel = new MarketTransactionsModel([], {
+			'url': '/api/market/' + marketId + '/transactions'
+		});
 		var txnView  = new TransactionsView({
 			'el': $('funder-transactions'),
 			'model': txnModel
