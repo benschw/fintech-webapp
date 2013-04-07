@@ -3,7 +3,7 @@ define(['underscore', 'backbone'], function (_, Backbone) {
 	'use strict';
 
 	var Model = Backbone.Model.extend({
-		url : '/api/marketItems',
+		url : '/api/market',
 		defaults: {
 			id               : 1123,
 			orgName          : 'Austin Pets Alive',

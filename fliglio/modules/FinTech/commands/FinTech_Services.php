@@ -12,7 +12,8 @@ class FinTech_Services implements Flfc_Routable {
 
 	public function __construct(Flfc_Context $context) {
 		$this->context = $context;
-		
+		$this->paramVal = clone $this->context->getRequest()->getProp('paramValidator');
+
 	}
 
 	/**
@@ -33,19 +34,20 @@ class FinTech_Services implements Flfc_Routable {
 			"bar" => "baz"
 		));
 	}
-	public function getMarketItem() {
+	public function getMarket() {
 
-		return new Fltk_JsonView(array(
-			'id' => 1,
-			'orgName'        => 'Austin Pets Alive',
-            'marketName'     => '$25 Gift Cards to Local Restraunts',
-            'discription'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            'orgImage'       => '/images/logos/austindog.png',
-            'seoName'        => 'austin-pets-alive-gift-cards'
-		));
+		$c = new Mongo('localhost');
+
+	  	// access database
+		$db = $c->selectDB('fintech');
+
+		$market = $db->Market->findOne(array("id" => $this->paramVal->getNotEmptyField('id', true)));
+
+
+		return new Fltk_JsonView($market);
 	}
 
-	public function getMarketItems() {
+	public function getMarkets() {
 
 		return new Fltk_JsonView(array(
 			array(
