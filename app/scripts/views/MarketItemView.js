@@ -16,6 +16,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 
 			this.$el.empty();
 			this.$el.append(compiledTemplate).show();
+			this.options.txnView.render();
 
 			var popup   = $('#popup');
 			var loading = $('#loading');
@@ -51,7 +52,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 				// });
 
 			});
-			this.options.txnView.render();
+
 			return this;
 		}
 	});

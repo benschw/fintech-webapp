@@ -155,21 +155,18 @@ define(['jquery', 'underscore', 'backbone',
 
 	ViewMgr.prototype.marketItem = function (marketId) {
 		var txnModel = new MarketTransactionsModel({'marketId': marketId});
-		txnModel.fetch();
 		var txnView  = new TransactionsView({
 			'el': $('funder-transactions'),
 			'model': txnModel
 		});
-
+		txnModel.fetch();
 
 		var model = new MarketItemModel({id: marketId});
-
 		new MarketItemView({
 			'el': $(ViewMgr.regions.CONTENT),
 			'model': model,
 			'txnView': txnView
 		});
-
 		model.fetch();
 
 		return this;
