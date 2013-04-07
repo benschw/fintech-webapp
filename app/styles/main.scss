@@ -112,6 +112,9 @@ body.big-bg {
 	margin: 0 23px 0 0;
 	overflow: hidden;
 	text-align: center;
+	height: 100px;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 .fndr-list .fndr-item .meta {
 	float: left;
@@ -145,6 +148,17 @@ body.big-bg {
 .disqus .container {
 	margin: -150px auto 0 auto;
 }
+
+.fndr-modal-layer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: .65;
+	z-index: 100;
+	top: 0;
+}
+
 
 
 

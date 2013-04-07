@@ -5,9 +5,7 @@
 	<ul class="fndr-list">
 		<% for (var i=0, l=items.length; i<l; i++) { %>
 			<li class="fndr-item <%= i%2? 'even' : 'odd' %>">
-				<div class="img-container">
-					<img src="<%= items[i].orgImage %>" />
-				</div>
+				<div class="img-container" style="background-image: url(<%= items[i].orgImage %>);"></div>
 				<div class="meta">
 					<h3><%= items[i].orgName %></h3>
 					<p><%= items[i].marketName %></p>

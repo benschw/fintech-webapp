@@ -10,10 +10,20 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 		render: function () {
 			$('body').addClass('big-bg');
 
-			var compiledTemplate = tpl['app/scripts/tpl/marketItem.html'](this.model.toJSON());
+			var model = this.model.toJSON();
+			var compiledTemplate = tpl['app/scripts/tpl/marketItem.html'](model);
 
 			this.$el.empty();
 			this.$el.append(compiledTemplate).show();
+
+			var popup = $('#popup');
+			popup.hide();
+
+			// $('a#purchase').click(function () {
+				// console.log('Ello world');
+				// popup.show();
+			// });
+
 			return this;
 		}
 	});
