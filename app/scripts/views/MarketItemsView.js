@@ -12,7 +12,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 
 			var compiledTemplate = tpl['app/scripts/tpl/marketItemsList.html']({
 				title : this.options.title,
-				items : _.shuffle(this.model.toJSON())
+				items : this.model.toJSON()
 			});
 
 			this.$el.empty();

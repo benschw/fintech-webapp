@@ -32,14 +32,27 @@ class FinTech_Services implements Flfc_Routable {
 		$c = new Mongo('localhost');
 		$db = $c->selectDB('fintech');
 
-		if($sort == "top")
+		$markets = array();
+		if($sort == "topp")
 		{
-			$cursor = $db->Transaction->aggregate(array('$group'=> array('_id' => '$marketId', 'totalCount' => array('$sum' => 1))), 
-													array('$sort'=>array('totalCount' => -1)));
-			$markets = array();
+			$cursor = $db->Transaction->aggregate(
+				array(
+					'$group'=> array(
+						'_id' => '$marketId', 
+						'totalCount' => array(
+							'$sum' => 1
+						)
+					)
+				), 
+				array('$sort'=>
+					array('totalCount' => -1)
+				)
+			);
+			$m = iterator_to_array($cursor);		
+				var_dump($m);
 			foreach ($cursor as $id => $value) 
 			{
-				$markets[] = $db->Market->findOne(array("id" => $id));
+				$markets[] = $db->Market->findOne(array("_id" => $id));
 			}
 		}
 		else
