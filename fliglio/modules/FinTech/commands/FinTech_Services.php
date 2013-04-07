@@ -40,24 +40,24 @@ class FinTech_Services implements Flfc_Routable {
 
 		$market = $db->Market->findOne(array("id" => $this->paramVal->getNotEmptyField('id', true)));
 
-
-		return new Fltk_JsonView($market['value']);
+		return new Fltk_JsonView($market);
 	}
 
 	public function getMarkets() {
 		$c = new Mongo('localhost');
 		$db = $c->selectDB('fintech');
 
-		$markets = $db->Market->find();
+		$cursor = $db->Market->find();
+		$markets = array_values(iterator_to_array($cursor));
+		return new Fltk_JsonView($markets);
 
 		$arr = array();
 		
-		foreach ($markets as $market) {
-			$arr[] = $market['Value'];
+		foreach ($markets as $id => $market) {
+			$arr[] = $market;
 		}
 
-		return new Fltk_JsonView($arr);
-
+		return new Fltk_JsonView($arr[0]);
 	}
 
 	public function getHistoryItem() {
