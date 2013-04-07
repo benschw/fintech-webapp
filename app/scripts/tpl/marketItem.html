@@ -6,7 +6,7 @@
 		<div class="meta">
 			<h3><%= orgName %></h3>
 			<h1><%= marketName %></h1>
-			<p><%= discription %></p>
+			<p><%= description %></p>
 		</div>
 		<div class="clr"></div>
 	</div>
@@ -20,7 +20,7 @@
 			<h2>Market Closes in 12 days</h2>
 			<div class="canvas">
 				<canvas id='trendLine' width='540' height='120'></canvas>
-				<div class="num-left"><span>24</span>Available</div>
+				<div class="num-left"><span><%= numAvailable %></span>Available</div>
 			</div>
 			<div class="btn-container">
 				<a id="purchase" class="btn btn-primary btn-large">Buy for $<%= (currentPrice*1000) %></a>
