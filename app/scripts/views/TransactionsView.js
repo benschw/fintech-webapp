@@ -9,7 +9,6 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 		},
 		render: function () {
 			var compiledTemplate = tpl['app/scripts/tpl/txnList.html']({
-			//	title : this.options.title,
 				items : _.shuffle(this.model.toJSON())
 			});
 

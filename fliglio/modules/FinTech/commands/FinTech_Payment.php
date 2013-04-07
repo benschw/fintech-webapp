@@ -35,10 +35,17 @@ class FinTech_Payment implements Flfc_Routable {
 
 		try 
 		{
-			$service = new Svc_Dwolla_Service();
-			$transactionId = $service->sendMoney($pin, $destination, $amount, $notes);
-			
+			$transactionId = 0;
+			try {
+				$service = new Svc_Dwolla_Service();
+				$transactionId = $service->sendMoney($pin, $destination, $amount, $notes);
+			} catch (Exception $e) {
+				//pass for demo
+			}	
 			$market = $db->Market->update(array("id" => (int)$marketItemId), array('$set' => array("currentPrice" => $market['currentPrice'] + .01)));
+
+			$sess = Util_Storage_Session::singleton();
+			$db->Transaction->insert(array("fbId" => $sess->oauth_id, "marketId" => (int)$marketItemId, "userId" => 2, "time" => time(), 'message' => $sess->firstName + " purchased an item"));
 
 			return new Fltk_JsonView(array(
 				"message" => "success",

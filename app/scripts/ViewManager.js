@@ -12,8 +12,7 @@ define(['jquery', 'underscore', 'backbone',
 		'views/TplView',
 		'views/UserNavView',
 		'views/MarketItemView',
-		'views/MarketItemsView',
-		'views/TransactionsView'
+		'views/MarketItemsView'
 	], function ($, _, Backbone,
 		NavModel,
 		HomeModel,
@@ -27,8 +26,7 @@ define(['jquery', 'underscore', 'backbone',
 		TplView,
 		UserNavView,
 		MarketItemView,
-		MarketItemsView,
-		TransactionsView
+		MarketItemsView
 	) {
 	'use strict';
 
@@ -130,7 +128,7 @@ define(['jquery', 'underscore', 'backbone',
 			'title' : 'New Markets'
 		});
 
-		model.fetch();
+		model.fetch({data: {sort: 'new'}});
 		view.render();
 
 		return this;
@@ -145,7 +143,7 @@ define(['jquery', 'underscore', 'backbone',
 			'title' : 'Top Markets'
 		});
 
-		model.fetch();
+		model.fetch({data: {sort: 'top'}});
 		view.render();
 
 		return this;
@@ -157,17 +155,13 @@ define(['jquery', 'underscore', 'backbone',
 		var txnModel = new MarketTransactionsModel([], {
 			'url': '/api/market/' + marketId + '/transactions'
 		});
-		var txnView  = new TransactionsView({
-			'el': $('funder-transactions'),
-			'model': txnModel
-		});
 		txnModel.fetch();
 
 		var model = new MarketItemModel({id: marketId});
 		new MarketItemView({
-			'el': $(ViewMgr.regions.CONTENT),
-			'model': model,
-			'txnView': txnView
+			'el'       : $(ViewMgr.regions.CONTENT),
+			'model'    : model,
+			'txnModel' : txnModel
 		});
 		model.fetch();
 

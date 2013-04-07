@@ -27,12 +27,43 @@ class FinTech_Services implements Flfc_Routable {
 	}
 
 	public function getMarkets() {
+		$sort = $this->paramVal->getNotEmptyField('sort', true);
+
 		$c = new Mongo('localhost');
 		$db = $c->selectDB('fintech');
 
-		$cursor = $db->Market->find();
-		$markets = array_values(iterator_to_array($cursor));
+		$markets = array();
+		if ($sort == "topp") {
+			$txns = $db->Transaction->find();	
+
+			$cnt = array();
+			foreach ($txns as $txn) {
+				$cnt[$txn['marketId']] = (isset($cnt[$txn['marketId']]) ? $cnt[$txn['marketId']] : 0) + 1;
+			}
+			sort($cnt);
+			$order = array_keys($cnt);
+
+			$cursor = $db->Market->find();	
+			$ms = array_values(iterator_to_array($cursor));		
+
+			foreach ($order as $mid) {
+				foreach ($ms as $market) {
+					if ($market['id'] == $mid) {
+						$markets[] = $market;
+					}
+				}
+			}
+
+
+
+		} else {	
+			$cursor = $db->Market->find();	
+			$markets = array_values(iterator_to_array($cursor));		
+		}
+		
 		return new Fltk_JsonView($markets);
 	}
+
+	
 	
 }
