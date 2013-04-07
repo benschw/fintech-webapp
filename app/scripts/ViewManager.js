@@ -149,13 +149,13 @@ define(['jquery', 'underscore', 'backbone',
 
 	ViewMgr.prototype.marketItem = function (marketId) {
 		var model = new MarketItemModel({id: marketId});
-		var view  = new MarketItemView({
+
+		new MarketItemView({
 			'el': $(ViewMgr.regions.CONTENT),
 			'model': model
 		});
 
 		model.fetch();
-		view.render();
 
 		return this;
 	};
