@@ -13,134 +13,118 @@
 	</div>
 
 	<script>
-	(function($) {
-	
-		if (typeof console == 'undefined') console = {};
-
-		//private vars
-
-		//private methods
-
-		var TrendChart = {
-			//public methods
-			isSupported: function(){
-				var elem = document.createElement('canvas');
-				if (isExcanvas()) G_vmlCanvasManager.initElement(elem);
-				return !!(elem.getContext && elem.getContext('2d'));
-			},
 		
-			draw: function(canvas, data){
+		function drawTrendChart(canvas, data){
 			
-				var width = canvas.width;
-				var chartWidth = width - 100; //room for labels
-				var leftMargin = 30;
-				var height = canvas.height;
-				var chartHeight = height - 20; //room for label at top
-				var topMargin = 20;
-				var dataMinY = 0;
-				var dataMaxY = 0;
-				var points = data.points;
-				var numberOfPoints = points.length;
-				var firstPoint = points[0];
-				var lastPoint = points[numberOfPoints-1];
-				var nextToLastPoint = points[numberOfPoints-2];
-			
-				var l = points.length;
-				for (var i=0; i<l; i++){
-					dataMaxY = Math.max(dataMaxY, points[i].y);
-				}
-			
-				var toCanvasY = function(value){
-					return topMargin + chartHeight - (value/dataMaxY) * chartHeight;
-				}
-			
-				var toCanvasX = function(value){
-					return leftMargin + chartWidth * value;
-				}
-			
-				var chartMoveTo = function(x, y){
-					ctx.moveTo(toCanvasX(x), toCanvasY(y));
-				}
-			
-				var chartLineTo = function(x, y){
-					ctx.lineTo(toCanvasX(x), toCanvasY(y));
-				}
-			
-				var lineColorForSegmentToIndex = function(i){
-					return 'rgba(255, ' + Math.round(255-(i/numberOfPoints)*255) + ', 255, 1.0)';
-				}
-			
-				var ctx = canvas.getContext('2d');
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				ctx.fillStyle = "rgba(255, 255, 255, 1.0)";
-				ctx.fillRect(0, 0, width, height);
-			
-				//draw trendline
-			
-				var gradient1 = ctx.createLinearGradient(toCanvasX(0), 0, toCanvasX(lastPoint.x), 0);
-				gradient1.addColorStop(0, '#fff');
-				gradient1.addColorStop(1, '#f0f');
-			
-				ctx.lineWidth = 6;
-				ctx.lineCap = 'round';
-			
-				var l = points.length;
-				for (var i=1; i<numberOfPoints; i++){
-					ctx.strokeStyle = gradient1;
-					ctx.beginPath();
-					chartMoveTo(points[i-1].x, points[i-1].y);
-					chartLineTo(points[i].x, points[i].y);
-					ctx.stroke();
-				}
-			
-				//draw end arrow
-				ctx.save();
-				ctx.translate(Math.round(toCanvasX(lastPoint.x)), Math.round(toCanvasY(lastPoint.y)));
-				var angleOfLastSegment = Math.atan2(toCanvasX(lastPoint.x) - toCanvasX(nextToLastPoint.x), toCanvasY(nextToLastPoint.y) - toCanvasY(lastPoint.y));
-				ctx.rotate(angleOfLastSegment);
-				ctx.fillStyle = "rgba(255, 0, 255, 1.0)";
-				ctx.beginPath();
-				ctx.moveTo(-.5, -8);
-				ctx.lineTo(8.5, 10);
-				ctx.lineTo(-8.5, 10);
-				ctx.closePath();
-				ctx.fill();
-				ctx.restore();
-			
-				//draw axis
-				ctx.lineWidth = 1;
-				ctx.strokeStyle = "rgba(212, 212, 212, 1.0)";
-				ctx.beginPath();
-				ctx.moveTo(0,height);
-				ctx.lineTo(width, height);
-				ctx.stroke();
-			
-				//draw start label
-				ctx.fillStyle = "rgba(74, 74, 74, 1.0)";
-				ctx.font = 'bold 14px Helvetica Neue, Helvetica, Arial, sans-serif';
-				//ctx.fontWeight = 'bold';
-				ctx.textBaseline = 'top';
-				ctx.fillText('$' + firstPoint.y, 0, Math.min(height - 18, toCanvasY(firstPoint.y) - 7));
-			
-				//draw end label
-				ctx.fillStyle = "rgba(60, 60, 60, 1.0)";
-				ctx.font = 'bold 30px Helvetica Neue, Helvetica, Arial, sans-serif';
-				ctx.textAlign = 'left';
-				ctx.textBaseline = 'top';
-				ctx.fillText('$' + lastPoint.y, toCanvasX(lastPoint.x) + 9, toCanvasY(lastPoint.y) - 20);
-			
-				//draw end label label
-				ctx.fillStyle = "rgba(155, 155, 155, 1.0)";
-				ctx.font = '11px Helvetica Neue, Helvetica, Arial, sans-serif';
-				ctx.textAlign = 'left';
-				ctx.textBaseline = 'top';
-				//console.log(ctx.measureText('$20'));
-				ctx.fillText('Current Price', toCanvasX(lastPoint.x) + 9, toCanvasY(lastPoint.y) + 16);
-			
+			var width = canvas.width;
+			var chartWidth = width - 100; //room for labels
+			var leftMargin = 30;
+			var height = canvas.height;
+			var chartHeight = height - 20; //room for label at top
+			var topMargin = 20;
+			var dataMinY = 0;
+			var dataMaxY = 0;
+			var points = data.points;
+			var numberOfPoints = points.length;
+			var firstPoint = points[0];
+			var lastPoint = points[numberOfPoints-1];
+			var nextToLastPoint = points[numberOfPoints-2];
+		
+			var l = points.length;
+			for (var i=0; i<l; i++){
+				dataMaxY = Math.max(dataMaxY, points[i].y);
 			}
+		
+			var toCanvasY = function(value){
+				return topMargin + chartHeight - (value/dataMaxY) * chartHeight;
+			}
+		
+			var toCanvasX = function(value){
+				return leftMargin + chartWidth * value;
+			}
+		
+			var chartMoveTo = function(x, y){
+				ctx.moveTo(toCanvasX(x), toCanvasY(y));
+			}
+		
+			var chartLineTo = function(x, y){
+				ctx.lineTo(toCanvasX(x), toCanvasY(y));
+			}
+		
+			var lineColorForSegmentToIndex = function(i){
+				return 'rgba(255, ' + Math.round(255-(i/numberOfPoints)*255) + ', 255, 1.0)';
+			}
+		
+			var ctx = canvas.getContext('2d');
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.fillStyle = "rgba(255, 255, 255, 1.0)";
+			ctx.fillRect(0, 0, width, height);
+		
+			//draw trendline
+		
+			var gradient1 = ctx.createLinearGradient(toCanvasX(0), 0, toCanvasX(lastPoint.x), 0);
+			gradient1.addColorStop(0, '#fff');
+			gradient1.addColorStop(1, '#f0f');
+		
+			ctx.lineWidth = 6;
+			ctx.lineCap = 'round';
+		
+			var l = points.length;
+			for (var i=1; i<numberOfPoints; i++){
+				ctx.strokeStyle = gradient1;
+				ctx.beginPath();
+				chartMoveTo(points[i-1].x, points[i-1].y);
+				chartLineTo(points[i].x, points[i].y);
+				ctx.stroke();
+			}
+		
+			//draw end arrow
+			ctx.save();
+			ctx.translate(Math.round(toCanvasX(lastPoint.x)), Math.round(toCanvasY(lastPoint.y)));
+			var angleOfLastSegment = Math.atan2(toCanvasX(lastPoint.x) - toCanvasX(nextToLastPoint.x), toCanvasY(nextToLastPoint.y) - toCanvasY(lastPoint.y));
+			ctx.rotate(angleOfLastSegment);
+			ctx.fillStyle = "rgba(255, 0, 255, 1.0)";
+			ctx.beginPath();
+			ctx.moveTo(-.5, -8);
+			ctx.lineTo(8.5, 10);
+			ctx.lineTo(-8.5, 10);
+			ctx.closePath();
+			ctx.fill();
+			ctx.restore();
+		
+			//draw axis
+			ctx.lineWidth = 1;
+			ctx.strokeStyle = "rgba(212, 212, 212, 1.0)";
+			ctx.beginPath();
+			ctx.moveTo(0,height);
+			ctx.lineTo(width, height);
+			ctx.stroke();
+		
+			//draw start label
+			ctx.fillStyle = "rgba(74, 74, 74, 1.0)";
+			ctx.font = 'bold 14px Helvetica Neue, Helvetica, Arial, sans-serif';
+			//ctx.fontWeight = 'bold';
+			ctx.textBaseline = 'top';
+			ctx.fillText('$' + firstPoint.y, 0, Math.min(height - 18, toCanvasY(firstPoint.y) - 7));
+		
+			//draw end label
+			ctx.fillStyle = "rgba(60, 60, 60, 1.0)";
+			ctx.font = 'bold 30px Helvetica Neue, Helvetica, Arial, sans-serif';
+			ctx.textAlign = 'left';
+			ctx.textBaseline = 'top';
+			ctx.fillText('$' + lastPoint.y, toCanvasX(lastPoint.x) + 9, toCanvasY(lastPoint.y) - 20);
+		
+			//draw end label label
+			ctx.fillStyle = "rgba(155, 155, 155, 1.0)";
+			ctx.font = '11px Helvetica Neue, Helvetica, Arial, sans-serif';
+			ctx.textAlign = 'left';
+			ctx.textBaseline = 'top';
+			//console.log(ctx.measureText('$20'));
+			ctx.fillText('Current Price', toCanvasX(lastPoint.x) + 9, toCanvasY(lastPoint.y) + 16);
+			
 		}
 
-		TrendChart.draw($('#trendLine')[0],{
+		drawTrendChart($('#trendLine')[0],{
 			points:[
 				{x:0, y:20},
 				{x:.05, y:25},
@@ -151,8 +135,6 @@
 				{x:.30, y:60}
 			]
 		});
-
-	}(jQuery));
 	
 	</script>
 	
