@@ -9,7 +9,7 @@ class MongoTest extends PHPUnit_Framework_TestCase {
 
 		try {
 		  	// open connection to MongoDB server
-			$c = new Mongo('54.244.120.37');
+			$c = new Mongo('localhost');
 
 		  	// access database
 			$db = $c->selectDB('fintech');
