@@ -6,7 +6,7 @@
 		<div class="meta">
 			<h3><%= orgName %></h3>
 			<h1><%= marketName %></h1>
-			<p><%= discription %></p>
+			<p><%= description %></p>
 		</div>
 		<div class="clr"></div>
 	</div>
@@ -20,7 +20,7 @@
 			<h2>Market Closes in 4 days</h2>
 			<div class="canvas">
 				<canvas id='trendLine' width='540' height='120'></canvas>
-				<div class="num-left"><span>24</span>Available</div>
+				<div class="num-left"><span><%= numAvailable %></span>Available</div>
 			</div>
 			<div class="btn-container">
 				<a id="purchase" class="btn btn-primary btn-large">Buy for $<%= (currentPrice*1000) %></a>
@@ -28,9 +28,9 @@
 			<div class="disclaimer">
 				After your purchase, your ticket will be up for resale for $<%= (currentPrice*1000)+10 %>. 
 				If your ticket is sold, you will be paid back your $<%= (currentPrice*1000) %>, plus we will 
-				split the profit with <%= orgName %>, less transaction fees.
+				split the profit between you and <%= orgName %>.
 				<div class="dwolla-creds">
-					Payments powered by <span class="dwolla-logo">Dwolla</span>
+					<img src="/images/poweredbydwolla.png" />
 				</div>
 			</div>
 		</div>

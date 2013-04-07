@@ -16,6 +16,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 
 			this.$el.empty();
 			this.$el.append(compiledTemplate).show();
+			this.options.txnView.render();
 
 			var popup   = $('#popup');
 			var loading = $('#loading');
@@ -24,27 +25,31 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			popup.hide();
 			loading.hide();
 
-			var that = this;
+			// var that = this;
 			$('a#purchase').click(function () {
+				$('.fndr-form.pin').hide();
+				close.hide();
+				loading.show();
+
 				popup.show();
 
-				close.click(function () {
-					popup.hide();
-				});
+				// close.click(function () {
+				// 	popup.hide();
+				// });
 
-				$('.fndr-form .btn').click(function () {
-					var pin = $('input#pin').val();
-					var id  = model.id;
+				// $('.fndr-form .btn').click(function () {
+				// 	var pin = $('input#pin').val();
+				// 	var id  = model.id;
 
-					$('.fndr-form.pin').hide();
-					close.hide();
-					loading.show();
+				// 	$('.fndr-form.pin').hide();
+				// 	close.hide();
+				// 	loading.show();
 
-					$.getJSON('/api/payment/send', {'pin' : pin, 'id'  : id}).done(function () {
-						that.model.fetch();
-						popup.hide();
-					});
-				});
+				// 	$.getJSON('/api/payment/send', {'pin' : pin, 'id'  : id}).done(function () {
+				// 		that.model.fetch();
+				// 		popup.hide();
+				// 	});
+				// });
 
 			});
 
