@@ -41,9 +41,8 @@ class Svc_Dwolla_Service {
 		$tid = $this->dwolla->send($pin, $destination, $amount, $notes);
 		if(!$tid) 
 			{ 
-				echo "Error: {$this->dwolla->getError()} \n"; 
+				throw new Svc_Dwolla_Exception($this->dwolla->getError()); 
 			}
-		echo "Send transaction ID: {$tid} \n";
 		return $tid;
 	}
 
