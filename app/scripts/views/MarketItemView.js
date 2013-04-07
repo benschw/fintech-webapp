@@ -17,14 +17,18 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			this.$el.empty();
 			this.$el.append(compiledTemplate).show();
 
-			var popup = $('#popup');
+			var popup   = $('#popup');
+			var loading = $('#loading');
+			var close   = $('#close');
+
 			popup.hide();
+			loading.hide();
 
 			var that = this;
 			$('a#purchase').click(function () {
 				popup.show();
 
-				$('#close').click(function () {
+				close.click(function () {
 					popup.hide();
 				});
 
@@ -32,7 +36,9 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 					var pin = $('input#pin').val();
 					var id  = model.id;
 
-					// Add spinner
+					$('.fndr-form.pin').hide();
+					close.hide();
+					loading.show();
 
 					$.getJSON('/api/payment/send', {'pin' : pin, 'id'  : id}).done(function () {
 						that.model.fetch();
