@@ -29,7 +29,7 @@ class FinTech_Payment implements Flfc_Routable {
 
 		$market = $db->Market->findOne(array("id" => (int)$marketItemId));
 		$user = $db->User->findOne(array("id" => (int)$market['userId']));
-		$destination = $user['fbId'];
+		$destination = $user['dwollaId'];
 		$amount = $market['currentPrice'];
 		$notes = "";
 
