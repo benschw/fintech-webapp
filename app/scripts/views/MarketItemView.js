@@ -20,6 +20,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 			var popup = $('#popup');
 			popup.hide();
 
+			var that = this;
 			$('a#purchase').click(function () {
 				popup.show();
 
@@ -31,8 +32,10 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 					var pin = $('input#pin').val();
 					var id  = model.id;
 
-					// var that = this;
+					// Add spinner
+
 					$.getJSON('/api/payment/send', {'pin' : pin, 'id'  : id}).done(function () {
+						that.model.fetch();
 						popup.hide();
 					});
 				});
