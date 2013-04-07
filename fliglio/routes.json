@@ -24,6 +24,11 @@
 	"cmd"       : "FinTech.Services.market"
 
 },{
+	"name"         : "market",
+	"route"        : "/api/market/:id/transactions",
+	"cmd"       : "FinTech.Transactions.getMarketTransactions"
+
+},{
 	"name" : "error",
 	"cmd"  : "FinTech.Ui.handleError"
 },{

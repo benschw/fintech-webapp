@@ -17,17 +17,17 @@
 			<div id="funder-transactions" class="recent-container"></div>
 		</div>
 		<div class="trending">
-			<h2>Market Closes in 12 days</h2>
+			<h2>Market Closes in 4 days</h2>
 			<div class="canvas">
 				<canvas id='trendLine' width='540' height='120'></canvas>
 				<div class="num-left"><span>24</span>Available</div>
 			</div>
 			<div class="btn-container">
-				<a id="purchase" class="btn btn-primary btn-large">Buy for $<%= currentPrice %></a>
+				<a id="purchase" class="btn btn-primary btn-large">Buy for $<%= (currentPrice*1000) %></a>
 			</div>
 			<div class="disclaimer">
-				After your purchase, your ticket will be up for resale for $<%= currentPrice+10 %>. 
-				If your ticket is sold, you will be paid back your $<%= currentPrice %>, plus we will 
+				After your purchase, your ticket will be up for resale for $<%= (currentPrice*1000)+10 %>. 
+				If your ticket is sold, you will be paid back your $<%= (currentPrice*1000) %>, plus we will 
 				split the profit with <%= orgName %>, less transaction fees.
 				<div class="dwolla-creds">
 					Payments powered by <span class="dwolla-logo">Dwolla</span>
@@ -144,20 +144,19 @@
 			ctx.font = '11px Helvetica Neue, Helvetica, Arial, sans-serif';
 			ctx.textAlign = 'left';
 			ctx.textBaseline = 'top';
-			//console.log(ctx.measureText('$20'));
 			ctx.fillText('Current Price', toCanvasX(lastPoint.x) + 9, toCanvasY(lastPoint.y) + 16);
 			
 		}
 
 		drawTrendChart($('#trendLine')[0],{
 			points:[
-				{x:0, y:20},
-				{x:.05, y:25},
-				{x:.10, y:30},
-				{x:.15, y:30},
-				{x:.20, y:35},
-				{x:.25, y:40},
-				{x:.30, y:60}
+				{x:0, y:10},
+				{x:.1, y:10},
+				{x:.2, y:20},
+				{x:.3, y:30},
+				{x:.4, y:30},
+				{x:.5, y:40},
+				{x:.6, y:<%= (currentPrice*1000) %>}
 			]
 		});
 	
@@ -185,6 +184,9 @@
 
 <div id="popup" class="fndr-modal-layer">
 	<div class="fndr-popup-container">
+		<div id="loading" class="fndr-progress">
+			<img src="/images/contentLoading.gif" />
+		</div>
 		<div id="close" class="fndr-close"><button class="close">&times;</button></div>
 		<div class="fndr-form pin">
 			<label>Enter Your Dwolla PIN to complete payment</label>
