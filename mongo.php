@@ -86,17 +86,17 @@ try {
 
     $db->Transaction->insert(array("fbId" => 100401316, "marketId" => 1, "userId" => 3, "time" => time()-60*4, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 734736716, "marketId" => 1, "userId" => 4, "time" => time()-60*8, 'message' => "Purchased a gift card" ));
-    $db->Transaction->insert(array("fbId" => 1483899097, "marketId" => 1, "userId" => 1, "time" => time()-60*2, 'message' => "Purchased a gift card" ));
+    $db->Transaction->insert(array("fbId" => 1483899097, "marketId" => 2, "userId" => 1, "time" => time()-60*2, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 100000037326092, "marketId" => 2, "userId" => 2, "time" => time()-60*5, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 100401316, "marketId" => 2, "userId" => 3, "time" => time()-60*6, 'message' => "Purchased a gift card" ));	
     $db->Transaction->insert(array("fbId" => 1483899097, "marketId" => 2, "userId" => 1, "time" => time()-60*3, 'message' => "Purchased a gift card" ));
-    $db->Transaction->insert(array("fbId" => 100000037326092, "marketId" => 3, "userId" => 2, "time" => time()-60*2, 'message' => "Purchased a gift card" ));
+    $db->Transaction->insert(array("fbId" => 100000037326092, "marketId" => 2, "userId" => 2, "time" => time()-60*2, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 734736716, "marketId" => 3, "userId" => 4, "time" => time()-60*1, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 1483899097, "marketId" => 3, "userId" => 1, "time" => time()-60*5, 'message' => "Purchased a gift card" ));
-    $db->Transaction->insert(array("fbId" => 734736716, "marketId" => 4, "userId" => 4, "time" => time()-60*9, 'message' => "Purchased a gift card" ));
+    $db->Transaction->insert(array("fbId" => 734736716, "marketId" => 3, "userId" => 4, "time" => time()-60*9, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 100000037326092, "marketId" => 4, "userId" => 2, "time" => time()-60*2, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 100000037326092, "marketId" => 4, "userId" => 2, "time" => time()-60*7, 'message' => "Purchased a gift card" ));
-    $db->Transaction->insert(array("fbId" => 1483899097, "marketId" => 5, "userId" => 1, "time" => time()-60*2, 'message' => "Purchased a gift card" ));
+    $db->Transaction->insert(array("fbId" => 1483899097, "marketId" => 4, "userId" => 1, "time" => time()-60*2, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 1483899097, "marketId" => 5, "userId" => 1, "time" => time()-60*3, 'message' => "Purchased a gift card" ));
     $db->Transaction->insert(array("fbId" => 100401316, "marketId" => 5, "userId" => 3, "time" => time()-60*8, 'message' => "Purchased a gift card" ));
     
