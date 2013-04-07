@@ -14,7 +14,7 @@ try {
 	$db->User->insert(array("id" => 2, "firstName" => "Ben",    "lastName" => "Schwartz", 'fbId' => 100000037326092 ));
 	$db->User->insert(array("id" => 3, "firstName" => "Philip", "lastName" => "Whitt",    'fbId' => 100401316 ));
 	$db->User->insert(array("id" => 4, "firstName" => "Ben",    "lastName" => "Morrison", 'fbId' => 734736716 ));
-	$db->User->insert(array("id" => 5, "firstName" => "Dwolla", "lastName" => "Reflector",'fbId' => 100004365394658 ));
+	$db->User->insert(array("id" => 5, "firstName" => "Dwolla", "lastName" => "Reflector",'fbId' => 100004365394658, 'dwollaId' => 812-713-9234 ));
 
 
 	$db->Market->insert(array(
