@@ -6,6 +6,9 @@ body {
 body.big-bg {
 	background: #ECF8FF url(/images/bigbg.png) top center repeat-x;
 }
+.container {
+	width: 800px;
+}
 .nav-collapse.collapse {
 	margin: 3px 0 0 0;
 }
@@ -20,7 +23,6 @@ body.big-bg {
 }
 .fndr-market-hero {
 	height: 257px;
-	padding: 0 0 20px 0;
 }
 .fndr-market-hero .img-container {
 	width: 200px;
@@ -31,7 +33,7 @@ body.big-bg {
 	font-size: 26px;
 }
 .fndr-market-hero .meta {
-	width: 705px;
+	width: 565px;
 	float: right;
 	margin: 25px 0 0 0;
 }
@@ -42,9 +44,25 @@ body.big-bg {
 	width: 200px;
 	float: left;
 }
+.fndr-market-villan .recent h2 {
+	font-size: 18px;
+}
 .fndr-market-villan .trending {
-	width: 705px;
+	width: 565px;
 	float: right;
+}
+.fndr-market-villan .trending .canvas {
+	padding: 10px;
+	background: #FFF;
+}
+.fndr-market-villan .disclaimer {
+	margin: 10px 0 0;
+	color: #666;
+	font-size: 13px;
+}
+.fndr-market-villan .disclaimer .dwolla-creds {
+	margin: 5px 0 0;
+	color: blue;
 }
 .fndr-market-villan .trending h2 {
 	-webkit-border-radius: 10px 10px 0px 0px;
@@ -53,6 +71,7 @@ body.big-bg {
 	padding: 10px 0;
 	text-align: center;
 	font-size: 20px;
+	margin: 0;
 }
 .fndr-market-villan .trending .btn-container {
 	padding: 10px;
@@ -95,7 +114,6 @@ body.big-bg {
 	text-align: center;
 }
 .fndr-list .fndr-item .meta {
-	width: 600px;
 	float: left;
 	margin: 12px 0 0 0;
 }
@@ -122,4 +140,11 @@ body.big-bg {
 .disqus {
 	padding: 10px;
 	background: #FFF;
+	overflow: hidden;
 }
+.disqus .container {
+	margin: -150px auto 0 auto;
+}
+
+
+

@@ -12,20 +12,29 @@
 
 	<div class="fndr-market-villan">
 		<div class="recent">
-			
+			<h2>Recent Purchases</h2>
+			<div class="recent-container"></div>
 		</div>
 		<div class="trending">
-			<h2>Market Closes in 12 days</h1>
+			<h2>Market Closes in 12 days</h2>
 			<div class="canvas">
 				<canvas id='trendLine' width='500' height='120'></canvas>
 			</div>
 			<div class="btn-container">
-				<a class="btn btn-primary btn-large">Buy for $50</a>
+				<a class="btn btn-primary btn-large">Buy for salePrice</a>
+			</div>
+			<div class="disclaimer">
+				After your purchase, your ticket will be up for resale for (salePrice+10). 
+				If your ticket is sold, you will be paid back your salePrice, plus we will 
+				split the profit with <%= orgName %>, less transaction fees.
+				<div class="dwolla-creds">
+					Payments powered by <span class="dwolla-logo">Dwolla</span>
+				</div>
 			</div>
 		</div>
 		<div class="clr"></div>
 	</div>
-</div>
+
 	<script>
 		
 		function drawTrendChart(canvas, data){
@@ -151,20 +160,24 @@
 		});
 	
 	</script>
-	
-	<div class="disqus">
-		<div class="container">
-			<div id="disqus_thread"></div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-		var disqus_shortname = 'funderlocal'; // required: replace example with your forum shortname
+</div>
 
-		(function() {
-			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		})();
-	</script>
+<div class="disqus">
+	<div class="container">
+		<div id="disqus_thread"></div>
+		<a href="http://disqus.com" class="dsq-brlink" target="_blank">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
+
+<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	var disqus_shortname = 'funderlocal'; // required: replace example with your forum shortname
+
+	/* * * DON'T EDIT BELOW THIS LINE * * */
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
 
