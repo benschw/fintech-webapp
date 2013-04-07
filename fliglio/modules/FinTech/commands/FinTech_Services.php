@@ -40,6 +40,10 @@ class FinTech_Services implements Flfc_Routable {
 
 		$market = $db->Market->findOne(array("id" => $this->paramVal->getNotEmptyField('id')));
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 69c50bc8b54da52fcd84f620ba5c47422d23c154
 		return new Fltk_JsonView($market);
 	}
 
@@ -53,8 +57,13 @@ class FinTech_Services implements Flfc_Routable {
 
 		$arr = array();
 		
+<<<<<<< HEAD
+		foreach ($markets as $id => $value) {
+			$arr[] = $value;
+=======
 		foreach ($markets as $id => $market) {
 			$arr[] = $market;
+>>>>>>> 69c50bc8b54da52fcd84f620ba5c47422d23c154
 		}
 
 		return new Fltk_JsonView($arr[0]);
