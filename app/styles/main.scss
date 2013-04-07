@@ -227,3 +227,37 @@ body.big-bg h3 {
 	margin-top: -5px;
 	margin-bottom: -20px;
 }
+.fndr-txns {
+	max-height: 350px;
+	overflow-y: hidden;
+}
+.fndr-txns ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.fndr-txns ul li {
+	margin: 0 0 15px 0
+}
+.fndr-txns ul .image-container {
+	width: 38px;
+	overflow: hidden;
+	float: left;
+}
+.fndr-txns ul .image-container .profileImage {
+	width: 38px;
+}
+.fndr-txns ul .meta {
+	float: left;
+	margin: 3px 0 0 10px;
+}
+.fndr-txns ul .meta .time-ago {
+	color: #9B9B9B;
+}
+.fndr-txns ul .meta .time-ago, .fndr-txns ul .meta .name {
+	cursor: default;
+	padding: 0;
+	margin: 0;
+	line-height: normal;
+	font-size: 13px;
+}
