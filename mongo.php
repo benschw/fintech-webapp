@@ -46,7 +46,7 @@ try {
 				'currentPrice'	 => 0.02,
 				'orgName'        => 'Michael J Fox Foundation',
            		'marketName'     => '20 Pairs of Running Shoes (Nikes)',
-            	'description'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'description'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br /><br/>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             	'orgImage'       => '/images/logos/michaeljfox.png',
             	'seoName'        => 'michael-j-fox-foundation-nikes'
 	));
@@ -68,7 +68,7 @@ try {
 				'currentPrice'	 => 0.02,
 				'orgName'        => 'Stand Up to Cancer',
            		'marketName'     => '$25 Gift Cards to Local Resturants',
-            	'description'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            	'description'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br /><br/>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             	'orgImage'       => '/images/logos/standuptocancer.png',
             	'seoName'        => 'stand-up-to-cancer'
 	));
