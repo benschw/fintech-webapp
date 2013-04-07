@@ -99,6 +99,30 @@ class FinTech_Services implements Flfc_Routable {
 
 		));
 	}
+
+	public function getHistoryItem() {
+		return new Fltk_JsonView(array(
+			'fbId' 	 	=> 1483899097,
+			'time'   	=> time()-60*5,
+			'message' 	=> 'Purchased a gift card'
+		));
+	}
+
+
+	public function getHistoryItems() {
+		return new Fltk_JsonView(array(
+			array(
+			'fbId' 	 	=> 1483899097,
+			'time'   	=> time()-60*5,
+			'message' 	=> 'Purchased a gift card'
+			),
+			array(
+			'fbId' 	 	=> 1483899097,
+			'time'   	=> time()-60*8,
+			'message' 	=> 'Purchased a gift card'
+			),
+		));
+	}
 	
 	
 }
