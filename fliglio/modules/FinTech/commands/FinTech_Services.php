@@ -38,7 +38,7 @@ class FinTech_Services implements Flfc_Routable {
 		$c = new Mongo('localhost');
 		$db = $c->selectDB('fintech');
 
-		$market = $db->Market->findOne(array("id" => $this->paramVal->getNotEmptyField('id', true)));
+		$market = $db->Market->findOne(array("id" => $this->paramVal->getNotEmptyField('id')));
 
 		return new Fltk_JsonView($market);
 	}
