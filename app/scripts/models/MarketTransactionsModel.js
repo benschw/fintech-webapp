@@ -3,10 +3,7 @@ define(['underscore', 'backbone', 'models/MarketTransactionModel'], function (_,
 	'use strict';
 
 	var Model = Backbone.Collection.extend({
-		model : MarketTransactionModel,
-		defaults: {
-			marketId: 0
-		}
+		model : MarketTransactionModel
 	});
 
 	return Model;

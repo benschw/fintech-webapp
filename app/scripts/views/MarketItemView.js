@@ -17,11 +17,11 @@ define(['jquery', 'underscore', 'backbone', 'tpl', 'views/TransactionsView'], fu
 			this.$el.empty();
 			this.$el.append(compiledTemplate).show();
 
-			var txnView  = new TransactionsView({
+			this.txnView = new TransactionsView({
 				'el'    : $('#fndr-transactions'),
 				'model' : this.options.txnModel
 			});
-			txnView.render();
+			this.txnView.render();
 
 			var popup   = $('#popup');
 			var loading = $('#loading');
@@ -47,13 +47,13 @@ define(['jquery', 'underscore', 'backbone', 'tpl', 'views/TransactionsView'], fu
 					loading.show();
 
 					$.getJSON('/api/payment/send', {'pin' : pin, 'id'  : id}).done(function () {
-						that.model.fetch();
-						
 						loading.empty();
 						loading.append($('<h2>Purchase Complete</h2>'));
 
 						setTimeout(function () {
 							popup.hide();
+							that.model.fetch();
+							that.options.txnModel.fetch();
 						}, 2000);
 					});
 				});

@@ -155,7 +155,6 @@ define(['jquery', 'underscore', 'backbone',
 		var txnModel = new MarketTransactionsModel([], {
 			'url': '/api/market/' + marketId + '/transactions'
 		});
-		txnModel.fetch();
 
 		var model = new MarketItemModel({id: marketId});
 		new MarketItemView({
@@ -164,6 +163,7 @@ define(['jquery', 'underscore', 'backbone',
 			'txnModel' : txnModel
 		});
 		model.fetch();
+		txnModel.fetch();
 
 		return this;
 	};
