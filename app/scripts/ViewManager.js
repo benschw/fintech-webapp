@@ -148,7 +148,7 @@ define(['jquery', 'underscore', 'backbone',
 	// market item section
 
 	ViewMgr.prototype.marketItem = function (marketId) {
-		var model = new MarketItemModel({'marketId' : marketId});
+		var model = new MarketItemModel({id: marketId});
 		var view  = new MarketItemView({
 			'el': $(ViewMgr.regions.CONTENT),
 			'model': model

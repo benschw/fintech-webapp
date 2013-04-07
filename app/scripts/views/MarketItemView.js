@@ -5,9 +5,10 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 	var View = Backbone.View.extend({
 		initialize: function () {
 			_.bindAll(this, 'render');
-			this.model.on('add', this.render);
+			this.model.on('change', this.render);
 		},
 		render: function () {
+			$('body').removeClass();
 			$('body').addClass('big-bg');
 
 			var model = this.model.toJSON();
@@ -21,9 +22,21 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 
 			$('a#purchase').click(function () {
 				popup.show();
+
 				$('#close').click(function () {
 					popup.hide();
 				});
+
+				$('.fndr-form .btn').click(function () {
+					var pin = $('input#pin').val();
+					var id  = model.id;
+
+					// var that = this;
+					$.getJSON('/api/payments/send', {'pin' : pin, 'id'  : id}).done(function () {
+						popup.hide();
+					});
+				});
+
 			});
 
 			return this;

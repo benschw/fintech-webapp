@@ -18,6 +18,10 @@
 	"module"       : "FinTech",
 	"commandGroup" : "Services"
 
+},{
+	"name"         : "market",
+	"route"        : "/api/market/:id",
+	"cmd"       : "FinTech.Services.market"
 
 },{
 	"name" : "error",
