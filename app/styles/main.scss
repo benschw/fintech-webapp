@@ -58,6 +58,25 @@ body.home {
 	padding: 10px;
 	background: #FFF;
 }
+.fndr-market-villan .trending .num-left {
+	width: 85px;
+	position: relative;
+	z-index: 10;
+	float: right;
+	margin: -111px 28px 0 0;
+	text-align: center;
+	background: #CCC;
+	height: 85px;
+	background: #E3EEF4;
+	border-radius: 10px;
+}
+.fndr-market-villan .trending .num-left span {
+	text-align: center;
+	font-size: 47px;
+	height: auto;
+	display: block;
+	line-height: normal;
+}
 .fndr-market-villan .disclaimer {
 	margin: 10px 0 0;
 	color: #666;
@@ -147,10 +166,6 @@ body.home {
 	background: #FFF;
 	overflow: hidden;
 }
-.disqus .container {
-	margin: -125px auto 0 auto;
-}
-
 .fndr-modal-layer {
 	position: fixed;
 	width: 100%;
