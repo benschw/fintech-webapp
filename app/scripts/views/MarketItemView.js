@@ -47,7 +47,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 				});
 
 			});
-
+			this.options.txnView.render();
 			return this;
 		}
 	});
