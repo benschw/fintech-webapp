@@ -53,7 +53,7 @@ class FinTech_Services implements Flfc_Routable {
 		$arr = array();
 		
 		foreach ($markets as $market) {
-			$arr[] = $market['value'];
+			$arr[] = $market['Value'];
 		}
 
 		return new Fltk_JsonView($arr);
