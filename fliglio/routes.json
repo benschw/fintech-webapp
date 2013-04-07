@@ -19,9 +19,19 @@
 	"commandGroup" : "Services"
 
 },{
+	"name"         : "transactions",
+	"route"        : "/api/market/transactions",
+	"cmd"          : "FinTech.Transactions.getTransactions"
+
+},{
+	"name"         : "marketTransactions",
+	"route"        : "/api/market/:id/transactions",
+	"cmd"          : "FinTech.Transactions.getMarketTransactions"
+
+},{
 	"name"         : "market",
 	"route"        : "/api/market/:id",
-	"cmd"       : "FinTech.Services.market"
+	"cmd"          : "FinTech.Services.market"
 
 },{
 	"name" : "error",

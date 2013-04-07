@@ -5,24 +5,30 @@ define(['jquery', 'underscore', 'backbone',
 		'models/UserNavModel',
 		'models/MarketItemModel',
 		'models/MarketItemsModel',
+		'models/MarketTransactionModel',
+		'models/MarketTransactionsModel',
 		'views/NavView',
 		'views/HomeView',
 		'views/TplView',
 		'views/UserNavView',
 		'views/MarketItemView',
-		'views/MarketItemsView'
+		'views/MarketItemsView',
+		'views/TransactionsView'
 	], function ($, _, Backbone,
 		NavModel,
 		HomeModel,
 		UserNavModel,
 		MarketItemModel,
 		MarketItemsModel,
+		MarketTransactionModel,
+		MarketTransactionsModel,
 		NavView,
 		HomeView,
 		TplView,
 		UserNavView,
 		MarketItemView,
-		MarketItemsView
+		MarketItemsView,
+		TransactionsView
 	) {
 	'use strict';
 
@@ -148,11 +154,20 @@ define(['jquery', 'underscore', 'backbone',
 	// market item section
 
 	ViewMgr.prototype.marketItem = function (marketId) {
+		var txnModel = new MarketTransactionsModel({'marketId': marketId});
+		txnModel.fetch();
+		var txnView  = new TransactionsView({
+			'el': $('funder-transactions'),
+			'model': txnModel
+		});
+
+
 		var model = new MarketItemModel({id: marketId});
 
 		new MarketItemView({
 			'el': $(ViewMgr.regions.CONTENT),
-			'model': model
+			'model': model,
+			'txnView': txnView
 		});
 
 		model.fetch();
