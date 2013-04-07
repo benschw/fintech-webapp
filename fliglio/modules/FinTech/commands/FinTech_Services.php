@@ -33,30 +33,30 @@ class FinTech_Services implements Flfc_Routable {
 		$db = $c->selectDB('fintech');
 
 		$markets = array();
-		if($sort == "topp")
-		{
-			$cursor = $db->Transaction->aggregate(
-				array(
-					'$group'=> array(
-						'_id' => '$marketId', 
-						'totalCount' => array(
-							'$sum' => 1
-						)
-					)
-				), 
-				array('$sort'=>
-					array('totalCount' => -1)
-				)
-			);
-			$m = iterator_to_array($cursor);		
-				var_dump($m);
-			foreach ($cursor as $id => $value) 
-			{
-				$markets[] = $db->Market->findOne(array("_id" => $id));
+		if ($sort == "topp") {
+			$txns = $db->Transaction->find();	
+
+			$cnt = array();
+			foreach ($txns as $txn) {
+				$cnt[$txn['marketId']] = (isset($cnt[$txn['marketId']]) ? $cnt[$txn['marketId']] : 0) + 1;
 			}
-		}
-		else
-		{	
+			sort($cnt);
+			$order = array_keys($cnt);
+
+			$cursor = $db->Market->find();	
+			$ms = array_values(iterator_to_array($cursor));		
+
+			foreach ($order as $mid) {
+				foreach ($ms as $market) {
+					if ($market['id'] == $mid) {
+						$markets[] = $market;
+					}
+				}
+			}
+
+
+
+		} else {	
 			$cursor = $db->Market->find();	
 			$markets = array_values(iterator_to_array($cursor));		
 		}
