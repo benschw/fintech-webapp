@@ -22,10 +22,7 @@ try {
 				'userId' 		 => 5,
 				'startPrice'	 => 0.01,
 				'currentPrice'	 => 0.06,
-<<<<<<< HEAD
 				'numAvailable'   => 24,
-=======
->>>>>>> 24791d81e96c6948d03090fc4aff856b6b5db04e
 				'orgName'        => 'Austin Dog Rescue',
            		'marketName'     => '$10 Custom Dog Collars',
             	'description'    => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br /><br/>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
