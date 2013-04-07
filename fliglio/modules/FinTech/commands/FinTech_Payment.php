@@ -40,6 +40,9 @@ class FinTech_Payment implements Flfc_Routable {
 			
 			$market = $db->Market->update(array("id" => (int)$marketItemId), array('$set' => array("currentPrice" => $market['currentPrice'] + .01)));
 
+			$sess = Util_Storage_Session::singleton();
+			$db->Transaction->insert(array("fbId" => $sess->oauth_id, "marketId" => (int)$marketItemId, "userId" => 2, "time" => time(), 'message' => $notes ));
+
 			return new Fltk_JsonView(array(
 				"message" => "success",
 				"transactionId" => $transactionId
