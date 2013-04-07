@@ -23,20 +23,23 @@ class FinTech_Payment implements Flfc_Routable {
 		$amount = $this->paramVal->getNotEmptyField('amount', true);
 		$notes = $this->paramVal->getNotEmptyField('notes', true);
 
-		$service = new Svc_Dwolla_Service();
-		$transactionId = $service->sendMoney($pin, $destination, $amount, $notes);
+		
 
-		if(isset($transactionId))
+		try 
 		{
+			$service = new Svc_Dwolla_Service();
+			$transactionId = $service->sendMoney($pin, $destination, $amount, $notes);
+			
 			return new Fltk_JsonView(array(
 				"message" => "success",
 				"transactionId" => $transactionId
 			));
 		}
-		else
+		catch(Svc_Dwolla_Exception $e)
 		{
 			return new Fltk_JsonView(array(
-				"message" => "fail"
+				"message" => "fail",
+				"err" => $e->getMessage()
 			));
 		}
 	}	
