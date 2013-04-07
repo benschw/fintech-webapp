@@ -32,7 +32,7 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 					var id  = model.id;
 
 					// var that = this;
-					$.getJSON('/api/payments/send', {'pin' : pin, 'id'  : id}).done(function () {
+					$.getJSON('/api/payment/send', {'pin' : pin, 'id'  : id}).done(function () {
 						popup.hide();
 					});
 				});

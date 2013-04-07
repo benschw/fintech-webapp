@@ -18,12 +18,20 @@ class FinTech_Payment implements Flfc_Routable {
 	
 	public function send() {
 		$this->paramVal = clone $this->context->getRequest()->getProp('paramValidator');
-		$pin = $this->paramVal->getNotEmptyField('pin', true);
-		$destination = $this->paramVal->getNotEmptyField('destination', true);
-		$amount = $this->paramVal->getNotEmptyField('amount', true);
-		$notes = $this->paramVal->getNotEmptyField('notes', true);
+		$pin = $this->paramVal->getNotEmptyField('pin');
+		// $destination = $this->paramVal->getNotEmptyField('destination', true);
+		// $amount = $this->paramVal->getNotEmptyField('amount', true);
+		// $notes = $this->paramVal->getNotEmptyField('notes', true);
+		$marketItemId = $this->paramVal->getNotEmptyField('id');
 
-		
+		$c = new Mongo('localhost');
+		$db = $c->selectDB('fintech');
+
+		$market = $db->Market->findOne(array("id" => (int)$marketItemId));
+		$user = $db->User->findOne(array("id" => (int)$market['userId']));
+		$destination = $user['fbId'];
+		$amount = $market['currentPrice'];
+		$notes = "";
 
 		try 
 		{
