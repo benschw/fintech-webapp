@@ -17,7 +17,7 @@
 			<div class="recent-container"></div>
 		</div>
 		<div class="trending">
-			<h2>Market Closes in 12 days</h2>
+			<h2>Market Closes in 4 days</h2>
 			<div class="canvas">
 				<canvas id='trendLine' width='540' height='120'></canvas>
 				<div class="num-left"><span><%= numAvailable %></span>Available</div>
@@ -144,20 +144,19 @@
 			ctx.font = '11px Helvetica Neue, Helvetica, Arial, sans-serif';
 			ctx.textAlign = 'left';
 			ctx.textBaseline = 'top';
-			//console.log(ctx.measureText('$20'));
 			ctx.fillText('Current Price', toCanvasX(lastPoint.x) + 9, toCanvasY(lastPoint.y) + 16);
 			
 		}
 
 		drawTrendChart($('#trendLine')[0],{
 			points:[
-				{x:0, y:20},
-				{x:.05, y:25},
-				{x:.10, y:30},
-				{x:.15, y:30},
-				{x:.20, y:35},
-				{x:.25, y:40},
-				{x:.30, y:60}
+				{x:0, y:10},
+				{x:.1, y:10},
+				{x:.2, y:20},
+				{x:.3, y:30},
+				{x:.4, y:30},
+				{x:.5, y:40},
+				{x:.6, y:<%= (currentPrice*1000) %>}
 			]
 		});
 	
