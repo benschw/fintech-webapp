@@ -14,32 +14,15 @@ class FinTech_Services implements Flfc_Routable {
 		$this->context = $context;
 		$this->paramVal = clone $this->context->getRequest()->getProp('paramValidator');
 
+		$this->routeVal = clone $this->context->getRequest()->getProp('routeValidator');
 	}
 
-	/**
-	 * Foo
-	 * CREATE TABLE Foo (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, val VARCHAR(256));
-	 *
-	 * @return Fltk_JsonView
-	 */
-	public function getFoo() {
-#		$fooDbm = FinTech_MapperRegistry::get()->db()->get('FinTech_Foo');
-#		$f = new FinTech_Foo("now it is " . date('l jS \of F Y h:i:s A'));
-#		$fooDbm->save($f);
-#		$foo = $fooDbm->find($f->getId());
-#		assert($f->getVal() === $foo->getVal());
-		
-		return new Fltk_JsonView(array(
-#			"bar" => $foo->getVal()
-			"bar" => "baz"
-		));
-	}
 	public function getMarket() {
 		$c = new Mongo('localhost');
 		$db = $c->selectDB('fintech');
 
-		$market = $db->Market->findOne(array("id" => $this->paramVal->getNotEmptyField('id')));
-
+		$market = $db->Market->findOne(array("id" => (int)$this->routeVal->getNotEmptyField('id')));
+		unset($market['_id']);
 		return new Fltk_JsonView($market);
 	}
 

@@ -5,9 +5,10 @@ define(['jquery', 'underscore', 'backbone', 'tpl'], function ($, _, Backbone, tp
 	var View = Backbone.View.extend({
 		initialize: function () {
 			_.bindAll(this, 'render');
-			this.model.on('add', this.render);
+			this.model.on('change', this.render);
 		},
 		render: function () {
+			$('body').removeClass();
 			$('body').addClass('big-bg');
 
 			var model = this.model.toJSON();
