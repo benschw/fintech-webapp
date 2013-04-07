@@ -1,6 +1,6 @@
 <div class="fndr-txns">
 	<ul>
-		<% for (var i=0, l=items.length; i<l; i++) { %>
+		<% console.log(items); for (var i=0, l=items.length; i<l; i++) { %>
 			<li>
 				<div class="image-container">
 					<img class="profileImage" src="http://graph.facebook.com/<%= items[i].fbId %>/picture" /> 
@@ -11,6 +11,9 @@
 				</div>
 				<div class="clr"></div>
 			</li>
-		<% } %>
+		<% 
+
+		console.log(items[i]);
+		} %>
 	</ul>
 </div>

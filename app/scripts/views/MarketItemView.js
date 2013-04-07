@@ -48,7 +48,13 @@ define(['jquery', 'underscore', 'backbone', 'tpl', 'views/TransactionsView'], fu
 
 					$.getJSON('/api/payment/send', {'pin' : pin, 'id'  : id}).done(function () {
 						that.model.fetch();
-						popup.hide();
+						
+						loading.empty();
+						loading.append($('<h2>Purchase Complete</h2>'));
+
+						setTimeout(function () {
+							popup.hide();
+						}, 2000);
 					});
 				});
 
